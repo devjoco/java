@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
  * String type input into integers.
  */
 public class Dialogs {
+    /**
+     * This is the main function, which will actually run the dialog boxes
+     */
     public static void main(String[] args){
         JOptionPane.showMessageDialog(null, "Greetings Earthling.");
         int num = Integer.parseInt(
