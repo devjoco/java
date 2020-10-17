@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /**
- * Ch.2 p.114 - Programing Challenge #4
+ * Ch.2 p.114 - Programing Challenge 4
  * Write a program that displays the following pattern:
  *    *   
  *   ***
