@@ -28,7 +28,7 @@ public class Star {
         for(int i = 0; i < STAR_WIDTH; i += 1) {
             // Calculate num stars in row i
             stars = i * 2 + 1 
-                // This subtraction only happens if i < HALF_WIDTH
+                // This subtraction only happens if i > HALF_WIDTH
                 - (int)(4 * (i - (int)HALF_WIDTH) * (int)(i / HALF_WIDTH));
 
             // Calc num blanks in row
