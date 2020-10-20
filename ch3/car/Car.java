@@ -1,26 +1,24 @@
 public class Car {
+    // Fields
+    private int    yearModel;
+    private int    speed;
     private String make;
-    private int yearModel;
 
-    public void setMake(String newMake) {
-        make = newMake;
-    }
-    public void setYearModel(int newYear) {
-        yearModel = newYear;
-    }
-    public String getMake() {
-        return make; 
-    }
-    public int getYearModel() {
-        return yearModel;
+    // Constructor
+    public Car(int yrMdl, String mk) {
+        yearModel = yrMdl;
+        make      = mk;
+        speed     = 0;
     }
 
-    public static void main(String[] args) {
-        Car limo = new Car();
-
-        limo.setMake("Cadillac");
-
-        String myLimoMake = limo.getMake();
-        System.out.println(myLimoMake);
-    }
+    // Setters
+    public void setMake(String newMake)   { make = newMake; }
+    public void setYearModel(int newYear) { yearModel = newYear; }
+    public void accelerate()              { speed += 5; }
+    public void brake()                   { speed -= 5; }
+    
+    // Getters
+    public String getMake()      { return make; }
+    public int    getYearModel() { return yearModel; }
+    public int    getSpeed()     { return speed; }
 }
