@@ -36,9 +36,13 @@ public class UpperCaseFile {
     }
 
     private void copyToUpper() throws IOException {
-        Scanner inFile  = new Scanner(new File(inFilename));
-        FileWriter outFile = new FileWriter(outFilename, true);
-        inFile.close();
-        outFile.close();
+        Scanner     in  = new Scanner(new File(inFilename));
+        PrintWriter out = new PrintWriter(new FileWriter(outFilename, true));
+
+        while(in.hasNext()) 
+            out.println(in.nextLine().toUpperCase());
+
+        in.close();
+        out.close();
     }
 }
