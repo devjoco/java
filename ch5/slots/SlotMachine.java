@@ -47,11 +47,12 @@ public class SlotMachine {
         winnings = wager * matching;
         balance += winnings;
         if (matching == 0) {
-            System.out.printf("You got no matching items!")
+            System.out.printf("You got no matching items!");
         } else {
             System.out.printf("You got %d matching items! You win %f",
                               matching, winnings);
         }
+        return winnings;
     }
 
     private int getMatching(int item1, int item2, int item3) {
