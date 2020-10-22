@@ -18,4 +18,10 @@ import java.io.*;
  * will be uppercase.
  */
 public class UpperCaseFile {
+    String inFile, outFile;
+
+    public UpperCaseFile(String in, String out) {
+        inFile = in;
+        outFile = out;
+    }
 }
