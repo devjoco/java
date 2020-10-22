@@ -6,6 +6,7 @@ import java.io.*;
  */
 public class FileDisplay {
     private String filename;
+    final private int HEAD_NUM = 5, ALL_LINES_SIGNAL = -1; 
 
     /**
      * Constructor:
@@ -31,10 +32,12 @@ public class FileDisplay {
         Scanner inFile = new Scanner(f);
         int linesRead = 0;
         while(inFile.hasNext()) {
-            if(maxLines != -1 && linesRead >= maxLines)
+            if(maxLines != ALL_LINES_SIGNAL && linesRead >= maxLines)
                 break;
-            System.out.println(inFile.nextLine());
             linesRead++;
+            if(numbered)
+                System.out.print(linesRead + ": ");
+            System.out.println(inFile.nextLine());
         }
     }
 
@@ -45,8 +48,7 @@ public class FileDisplay {
      * file's entire contents.
      */
     public void displayHead() throws IOException {
-        final int MAX_LINES = 5;
-        display(MAX_LINES, false);
+        display(HEAD_NUM, false);
     }
 
     /**
@@ -54,6 +56,9 @@ public class FileDisplay {
      * Should display the entire contents of the file, the name of which was 
      * passed to the constructor.
      */
+    public void displayContents() throws IOException {
+        display(ALL_LINES_SIGNAL, false);
+    }
 
     /**
      * displayWithLineNumbers:
@@ -61,4 +66,7 @@ public class FileDisplay {
      * Each line should be preceded with a line number followed by a colon. 
      * The line numbering should start at 1.
      */
+    public void displayWithLineNumbers() throws IOException {
+        display(ALL_LINES_SIGNAL, true);
+    }
 }
