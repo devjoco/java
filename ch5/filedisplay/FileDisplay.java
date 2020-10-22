@@ -39,6 +39,7 @@ public class FileDisplay {
                 System.out.print(linesRead + ": ");
             System.out.println(inFile.nextLine());
         }
+        inFile.close();
     }
 
     /**
