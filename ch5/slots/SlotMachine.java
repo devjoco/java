@@ -16,4 +16,9 @@ public class SlotMachine {
                                     "Bells",    "Melons",  "Bars"};
     private double balance;
 
+    public SlotMachine()             { balance = 0;    }
+    public SlotMachine(double amt)   { balance = amt;  }
+    public double getBalance()       { return balance; }
+    public void deposit(double amt)  { balance += amt; }
+    public void withdraw(double amt) { balance -= amt; }
 }
