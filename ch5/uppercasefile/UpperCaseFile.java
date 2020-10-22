@@ -18,10 +18,27 @@ import java.io.*;
  * will be uppercase.
  */
 public class UpperCaseFile {
-    String inFile, outFile;
+    String inFilename, outFilename;
 
-    public UpperCaseFile(String in, String out) {
-        inFile = in;
-        outFile = out;
+    public UpperCaseFile(String in, String out) throws IOException {
+        inFilename = in;
+        outFilename = out;
+        exitIfNoFile();
+        copyToUpper();
+    }
+
+    private void exitIfNoFile() throws IOException {
+        File inF        = new File(inFilename);
+        if(!inF.exists()) {
+            System.err.println("File " + inFilename + " doesn't exist!");
+            System.exit(1);
+        }
+    }
+
+    private void copyToUpper() throws IOException {
+        Scanner inFile  = new Scanner(new File(inFilename));
+        FileWriter outFile = new FileWriter(outFilename, true);
+        inFile.close();
+        outFile.close();
     }
 }
