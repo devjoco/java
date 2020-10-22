@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Slot Machine Simulation -- Programming Challenge 21 p332
  *
@@ -21,4 +23,40 @@ public class SlotMachine {
     public double getBalance()       { return balance; }
     public void deposit(double amt)  { balance += amt; }
     public void withdraw(double amt) { balance -= amt; }
+
+    /**
+     * Randomly selects three items.
+     * Wager must be more than $0.00, less than balance.
+     * 0 matches -- user wins $0
+     * 2 matches -- user wins 2x the wager
+     * 3 matches -- user wins 3x the wager
+     */
+    public double spin(double wager) {
+        int item1, item2, item3, matching;
+        double winnings;
+        if(wager < 0 || balance < wager) {
+            System.out.printf("You only have %d to wager!", balance);
+            return 0.00;
+        }
+        Random rng = new Random();
+        balance -= wager;
+        item1 = rng.nextInt(6) + 1;
+        item2 = rng.nextInt(6) + 1;
+        item3 = rng.nextInt(6) + 1;
+        matching = getMatching(item1, item2, item3);
+        winnings = wager * matching;
+        balance += winnings;
+        if (matching == 0) {
+            System.out.printf("You got no matching items!")
+        } else {
+            System.out.printf("You got %d matching items! You win %f",
+                              matching, winnings);
+        }
+    }
+
+    private int getMatching(int item1, int item2, int item3) {
+        return (item1 == item2 && item1 == item2)                   ? 3 :
+               (item1 == item2 || item1 == item3 || item2 == item3) ? 2 :
+                                                                      0;
+    }
 }
