@@ -16,13 +16,10 @@ public class FileDisplay {
     }
 
     /**
-     * displayHead: 
-     * Should display only the first five lines of the file's contents.
-     * If the file contains less than five lines, it should display the 
-     * file's entire contents.
+     * display:
+     * helper class used by other classes
      */
-    public void displayHead() throws IOException {
-        final int MAX_LINES = 5;
+    public void display(int maxLines, boolean numbered) throws IOException {
         // Check if file exists, exit if not
         File f = new File(filename);
         if(!f.exists()) {
@@ -30,14 +27,26 @@ public class FileDisplay {
             System.exit(1);
         }
 
-        // Create scanner, print up to five lines
+        // Create scanner, print necessary lines
         Scanner inFile = new Scanner(f);
-        for(int i=0; i<MAX_LINES; i++) {
-            if(!inFile.hasNext())
+        int linesRead = 0;
+        while(inFile.hasNext()) {
+            if(maxLines != -1 && linesRead >= maxLines)
                 break;
             System.out.println(inFile.nextLine());
+            linesRead++;
         }
-        
+    }
+
+    /**
+     * displayHead: 
+     * Should display only the first five lines of the file's contents.
+     * If the file contains less than five lines, it should display the 
+     * file's entire contents.
+     */
+    public void displayHead() throws IOException {
+        final int MAX_LINES = 5;
+        display(MAX_LINES, false);
     }
 
     /**
