@@ -1,34 +1,46 @@
 import java.util.Scanner;
 
 public class DemoSlotMachine {
+    final static char    SPIN_CHAR     = 'S',
+                         DEPOSIT_CHAR  = 'D',
+                         WITHDRAW_CHAR = 'W',
+                         ENDGAME_CHAR  = 'E';
+    final static String  SPIN_STR      = "Spin",
+                         DEPOSIT_STR   = "Deposit",
+                         WITHDRAW_STR  = "Withdraw",
+                         ENDGAME_STR   = "End Game";
+
+    public static char getUserChoice() {
+        Scanner scan = new Scanner(System.in);
+        System.out.printf("(%c) %-12s (%c) %-12s\n",
+                SPIN_CHAR, SPIN_STR, DEPOSIT_CHAR, DEPOSIT_STR);
+        System.out.printf("(%c) %-12s (%c) %-12s\n",
+                WITHDRAW_CHAR, WITHDRAW_STR, ENDGAME_CHAR, ENDGAME_STR);
+        System.out.print("What do you want to do: ");
+        return scan.nextLine().toUpperCase().charAt(0);
+    }
+
     public static void main(String[] args) {
-        final char  SPIN_CHAR     = 's',
-                    DEPOSIT_CHAR  = 'd',
-                    WITHDRAW_CHAR = 'w',
-                    ENDGAME_CHAR  = 'e';
         Scanner     scan          = new Scanner(System.in);
         SlotMachine machine       = new SlotMachine();
-        double totalDeposited, totalWinnings;
+        double totalDeposited, totalWinnings, amount;
         char choice;
         
-        System.out.println("How much money will you be depositing?");
+        System.out.print("How much money will you be depositing? ");
         totalDeposited = Double.parseDouble(scan.nextLine());
         machine.deposit(totalDeposited);
 
         while(machine.getBalance() > 0.00) {
-            System.out.println("What do you want to do:");
-            System.out.printf("(%c) Spin\n", SPIN_CHAR);
-            System.out.printf("(%c) Deposit Money\n", DEPOSIT_CHAR);
-            System.out.printf("(%c) Withdraw Money\n", WITHDRAW_CHAR);
-            System.out.printf("(%c) End Game\n", ENDGAME_CHAR);
-            choice = scan.nextLine().toLowerCase().charAt(0);
-
-            switch(choice) {
+            switch(getUserChoice()) {
                 case SPIN_CHAR:
                     System.out.println("You chose to spin!");
                     break;
                 case DEPOSIT_CHAR:
-                    System.out.println("You chose to deposit!");
+                    System.out.print("How much will you be depositing? ");
+                    amount = Double.parseDouble(scan.nextLine());
+                    machine.deposit(amount);
+                    System.out.printf("You're new balance is $%,#05.2f\n", 
+                                      machine.getBalance());
                     break;
                 case WITHDRAW_CHAR:
                     System.out.println("You chose to withdraw!");
