@@ -2,8 +2,12 @@ import java.util.Scanner;
 
 public class DemoSlotMachine {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        SlotMachine machine = new SlotMachine();
+        final char  SPIN_CHAR     = 's',
+                    DEPOSIT_CHAR  = 'd',
+                    WITHDRAW_CHAR = 'w',
+                    ENDGAME_CHAR  = 'e';
+        Scanner     scan          = new Scanner(System.in);
+        SlotMachine machine       = new SlotMachine();
         double totalDeposited, totalWinnings;
         char choice;
         
@@ -12,16 +16,30 @@ public class DemoSlotMachine {
         machine.deposit(totalDeposited);
 
         while(machine.getBalance() > 0.00) {
-            // User can spin, deposit, withdraw, end game
             System.out.println("What do you want to do:");
-            System.out.println("(S) Spin");
-            System.out.println("(D) Deposit Money");
-            System.out.println("(W) Withdraw Money");
-            System.out.println("(E) End Game");
+            System.out.printf("(%c) Spin\n", SPIN_CHAR);
+            System.out.printf("(%c) Deposit Money\n", DEPOSIT_CHAR);
+            System.out.printf("(%c) Withdraw Money\n", WITHDRAW_CHAR);
+            System.out.printf("(%c) End Game\n", ENDGAME_CHAR);
             choice = scan.nextLine().toLowerCase().charAt(0);
-            
+
+            switch(choice) {
+                case SPIN_CHAR:
+                    System.out.println("You chose to spin!");
+                    break;
+                case DEPOSIT_CHAR:
+                    System.out.println("You chose to deposit!");
+                    break;
+                case WITHDRAW_CHAR:
+                    System.out.println("You chose to withdraw!");
+                    break;
+                case ENDGAME_CHAR:
+                    System.out.println("You chose to end game :(");
+                    break;
+                default:
+                    System.out.println("That's an invalid choice!");
+                    break;
+            }
         }
-
-
     }
 }
