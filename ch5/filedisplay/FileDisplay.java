@@ -22,7 +22,7 @@ public class FileDisplay {
      * file's entire contents.
      */
     public void displayHead() throws IOException {
-        final MAX_LINES = 5;
+        final int MAX_LINES = 5;
         // Check if file exists, exit if not
         File f = new File(filename);
         if(!f.exists()) {
