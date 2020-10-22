@@ -12,7 +12,7 @@ public class DemoSlotMachine {
 
     public static char getUserChoice() {
         Scanner scan = new Scanner(System.in);
-        System.out.printf("(%c) %-12s (%c) %-12s\n",
+        System.out.printf("\n(%c) %-12s (%c) %-12s\n",
                 SPIN_CHAR, SPIN_STR, DEPOSIT_CHAR, DEPOSIT_STR);
         System.out.printf("(%c) %-12s (%c) %-12s\n",
                 WITHDRAW_CHAR, WITHDRAW_STR, ENDGAME_CHAR, ENDGAME_STR);
@@ -33,23 +33,23 @@ public class DemoSlotMachine {
         while(machine.getBalance() > 0.00) {
             switch(getUserChoice()) {
                 case SPIN_CHAR:
-                    System.out.println("You chose to spin!");
+                    System.out.println("\nYou chose to spin!");
                     break;
                 case DEPOSIT_CHAR:
-                    System.out.print("How much will you be depositing? ");
+                    System.out.print("\nHow much will you be depositing? ");
                     amount = Double.parseDouble(scan.nextLine());
                     machine.deposit(amount);
-                    System.out.printf("You're new balance is $%,#05.2f\n", 
+                    System.out.printf("\nYou're new balance is $%-,#5.2f\n", 
                                       machine.getBalance());
                     break;
                 case WITHDRAW_CHAR:
-                    System.out.println("You chose to withdraw!");
+                    System.out.println("\nYou chose to withdraw!");
                     break;
                 case ENDGAME_CHAR:
-                    System.out.println("You chose to end game :(");
+                    System.out.println("\nYou chose to end game :(");
                     break;
                 default:
-                    System.out.println("That's an invalid choice!");
+                    System.out.println("\nThat's an invalid choice!");
                     break;
             }
         }
