@@ -59,6 +59,8 @@ public class DemoSlotMachine {
 
                 case ENDGAME_CHAR:
                     System.out.println("\nYou chose to end game :(");
+                    totalWithdrawn += machine.getBalance();
+                    machine.withdraw(machine.getBalance());
                     break;
 
                 default:
