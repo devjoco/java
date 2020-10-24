@@ -56,7 +56,7 @@ public class SlotMachine {
     }
 
     private int getMatching(int item1, int item2, int item3) {
-        return (item1 == item2 && item1 == item2)                   ? 3 :
+        return (item1 == item2 && item1 == item3)                   ? 3 :
                (item1 == item2 || item1 == item3 || item2 == item3) ? 2 :
                                                                       0;
     }
