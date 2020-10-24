@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.text.DecimalFormat;
 
 /**
  * Slot Machine Simulation -- Programming Challenge 21 p332
@@ -14,6 +15,7 @@ import java.util.Random;
  *   + getBalance()            : double (Returns amount of money in machine)
  */
 public class SlotMachine {
+    final private DecimalFormat moneyFormat = new DecimalFormat("#,##0.00");
     final private String[] items = {"Cherries", "Oranges", "Plums",
                                     "Bells",    "Melons",  "Bars"};
     private double balance;
@@ -35,7 +37,8 @@ public class SlotMachine {
         int item1, item2, item3, matching;
         double winnings;
         if(wager < 0 || balance < wager) {
-            System.out.printf("You only have %d to wager!", balance);
+            System.out.printf("You only have %s to wager!", 
+                    moneyFormat.format(balance));
             return 0.00;
         }
         Random rng = new Random();
@@ -49,8 +52,9 @@ public class SlotMachine {
         if (matching == 0) {
             System.out.printf("You got no matching items!");
         } else {
-            System.out.printf("You got %d matching items! You win %f",
-                              matching, winnings);
+            System.out.printf("You got %d matching items! You win $%s",
+                              matching, 
+                              moneyFormat.format(winnings));
         }
         return winnings;
     }

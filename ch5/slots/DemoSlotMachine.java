@@ -1,6 +1,9 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class DemoSlotMachine {
+    final static private DecimalFormat moneyFormat = 
+        new DecimalFormat("#,##0.00");
     final static char    SPIN_CHAR     = 'S',
                          DEPOSIT_CHAR  = 'D',
                          WITHDRAW_CHAR = 'W',
@@ -9,6 +12,11 @@ public class DemoSlotMachine {
                          DEPOSIT_STR   = "Deposit",
                          WITHDRAW_STR  = "Withdraw",
                          ENDGAME_STR   = "End Game";
+
+    private static void printBalance(double bal) {
+        System.out.printf("\nYou're balance is $%s\n", 
+                moneyFormat.format(bal));
+    }
 
     public static char getUserChoice() {
         Scanner scan = new Scanner(System.in);
@@ -36,7 +44,10 @@ public class DemoSlotMachine {
         while(machine.getBalance() > 0.00) {
             switch(getUserChoice()) {
                 case SPIN_CHAR:
-                    System.out.println("\nYou chose to spin!");
+                    System.out.println("\nHow much are you wagering? ");
+                    amount = scan.nextDouble();
+                    amount = machine.spin(amount);
+                    printBalance(machine.getBalance());
                     break;
 
                 case DEPOSIT_CHAR:
@@ -44,8 +55,7 @@ public class DemoSlotMachine {
                     amount = Double.parseDouble(scan.nextLine());
                     totalDeposited += amount;
                     machine.deposit(amount);
-                    System.out.printf("\nYou're new balance is $%-,#5.2f\n", 
-                                      machine.getBalance());
+                    printBalance(machine.getBalance());
                     break;
 
                 case WITHDRAW_CHAR:
@@ -53,8 +63,7 @@ public class DemoSlotMachine {
                     amount = Double.parseDouble(scan.nextLine());
                     totalWithdrawn += amount;
                     machine.withdraw(amount);
-                    System.out.printf("\nYou're new balance is $%-,#5.2f\n", 
-                                      machine.getBalance());
+                    printBalance(machine.getBalance());
                     break;
 
                 case ENDGAME_CHAR:
