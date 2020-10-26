@@ -15,8 +15,8 @@ import java.text.DecimalFormat;
  *   + getBalance()            : double (Returns amount of money in machine)
  */
 public class SlotMachine {
-    final private DecimalFormat moneyFormat = new DecimalFormat("#,##0.00");
-    final private String[] items = {"Cherries", "Oranges", "Plums",
+    public static DecimalFormat moneyFormat = new DecimalFormat("#,##0.00");
+    public static String[] items = {"Cherries", "Oranges", "Plums",
                                     "Bells",    "Melons",  "Bars"};
     private double balance;
 
@@ -33,35 +33,30 @@ public class SlotMachine {
      * 2 matches -- user wins 2x the wager
      * 3 matches -- user wins 3x the wager
      */
-    public double spin(double wager) {
-        int item1, item2, item3, matching;
+    public int[] spin(double wager) {
+        int   matching;
+        int[] itemArray = {0, 0, 0};
         double winnings;
         if(wager < 0 || balance < wager) {
             System.out.printf("You only have %s to wager!", 
                     moneyFormat.format(balance));
-            return 0.00;
+            return itemArray;
         }
         Random rng = new Random();
         balance -= wager;
-        item1 = rng.nextInt(6) + 1;
-        item2 = rng.nextInt(6) + 1;
-        item3 = rng.nextInt(6) + 1;
-        matching = getMatching(item1, item2, item3);
+        itemArray[0] = rng.nextInt(6);
+        itemArray[1] = rng.nextInt(6);
+        itemArray[2] = rng.nextInt(6);
+        matching = getMatching(itemArray);
         winnings = wager * matching;
         balance += winnings;
-        if (matching == 0) {
-            System.out.printf("You got no matching items!");
-        } else {
-            System.out.printf("You got %d matching items! You win $%s",
-                              matching, 
-                              moneyFormat.format(winnings));
-        }
-        return winnings;
+        return itemArray;
     }
 
-    private int getMatching(int item1, int item2, int item3) {
-        return (item1 == item2 && item1 == item3)                   ? 3 :
-               (item1 == item2 || item1 == item3 || item2 == item3) ? 2 :
-                                                                      0;
+    public static int getMatching(int[] items) {
+        return (items[0] == items[1] && items[0] == items[2]) ? 3 :
+               (items[0] == items[1] ||  
+                items[0] == items[2] ||
+                items[1] == items[2])                         ? 2 : 0;
     }
 }

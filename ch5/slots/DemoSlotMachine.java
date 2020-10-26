@@ -2,8 +2,6 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class DemoSlotMachine {
-    final static private DecimalFormat moneyFormat = 
-        new DecimalFormat("#,##0.00");
     final static char    SPIN_CHAR     = 'S',
                          DEPOSIT_CHAR  = 'D',
                          WITHDRAW_CHAR = 'W',
@@ -15,7 +13,7 @@ public class DemoSlotMachine {
 
     private static void printBalance(double bal) {
         System.out.printf("\nYou're balance is $%s\n", 
-                moneyFormat.format(bal));
+                SlotMachine.moneyFormat.format(bal));
     }
 
     public static char getUserChoice() {
@@ -34,8 +32,10 @@ public class DemoSlotMachine {
         double totalDeposited = 0,
                totalWithdrawn = 0,
                totalWinnings  = 0,
-               amount;
+               amount, winnings;
         char choice;
+        int[] items;
+        int numMatching;
         
         System.out.print("How much money will you be depositing? ");
         totalDeposited = Double.parseDouble(scan.nextLine());
@@ -46,7 +46,22 @@ public class DemoSlotMachine {
                 case SPIN_CHAR:
                     System.out.println("\nHow much are you wagering? ");
                     amount = scan.nextDouble();
-                    amount = machine.spin(amount);
+                    items = machine.spin(amount);
+                    numMatching = SlotMachine.getMatching(items);
+                    winnings = amount * numMatching;
+                    if (numMatching == 0) {
+                        System.out.printf("You got no matching items!");
+                    } else {
+                        System.out.printf("You got %d matching items! ",
+                            numMatching);
+                        System.out.printf("You win $%s",
+                            SlotMachine.moneyFormat.format(winnings));
+                    }
+                    System.out.println();
+                    for(int item : items) {
+                        System.out.printf("%s ", SlotMachine.items[item]);
+                    }
+                    System.out.println();
                     printBalance(machine.getBalance());
                     break;
 
