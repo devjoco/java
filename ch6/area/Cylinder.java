@@ -1,7 +1,9 @@
 public class Cylinder {
-    public double radius, height;
+    private double radius, height;
     public Cylinder(double r, double h) { 
         radius = r;
         height = h; 
     }
+    public double getRadius() { return radius; }
+    public double getHeight() { return height; }
 }
