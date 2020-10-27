@@ -1,5 +1,3 @@
-import java.text.DecimalFormat;
-
 public class RoomDimension {
     private double length;
     private double width;
@@ -9,11 +7,23 @@ public class RoomDimension {
         this.width = width;
     }
 
+    public RoomDimension(RoomDimension size) { 
+        this(size.length, size.width);
+    }
+
     public double getArea() {
         return length * width;
     }
+    
+    public double getLength() {
+        return length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
 
     public String toString() {
-        return "room{"+length+"' x"+width+"'}";
+        return "room{"+length+"' x "+width+"'}";
     }
 }
