@@ -34,4 +34,9 @@ public class InventoryItem {
     public int getUnits() {
         return units;
     }
+
+    public static void main(String[] args) {
+        InventoryItem i1 = new InventoryItem();
+        System.out.println(i1);
+    }
 }
