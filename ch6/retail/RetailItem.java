@@ -12,6 +12,12 @@ public class RetailItem {
         cost = new CostData(wholesale, retail);
     }
 
+    public double getRetail()    { return cost.retail; }
+    public double getWholesale() { return cost.wholesale; }
+
+    public void setRetail(double r)    { cost.retail = r; }
+    public void setWholesale(double w) { cost.wholesale = w; }
+
     public String toString() {
         String str;
 
