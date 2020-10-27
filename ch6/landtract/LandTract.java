@@ -72,34 +72,34 @@ public class LandTract {
         }
         
         // Print header of LTs
-        System.out.printf("%"+longest+"s | %"+longest+"s | ",
+        System.out.printf("\n%"+longest+"s │ %"+longest+"s │ ",
                 "{LxW}",
                 " ");
         for(int i=0; i<lts.length; i++) {
             System.out.printf("%"+longest+"s%s",
                     lts[i],
-                    i == lts.length - 1? "\n":" | ");
+                    i == lts.length - 1? "\n":" │ ");
         }
 
         // Print header of Areas
-        System.out.printf("%"+longest+"s | %"+longest+"s | ",
+        System.out.printf("%"+longest+"s │ %"+longest+"s │ ",
                 " ",
                 "Area");
         for(int i=0; i<lts.length; i++) {
             System.out.printf("%"+longest+"s%s",
                     fmt.format(lts[i].getArea()),
-                    i == lts.length - 1? "\n":" | ");
+                    i == lts.length - 1? "\n":" │ ");
         }
 
         // Print body of matrix
         for(int i=0; i<lts.length; i++) {
-            System.out.printf("%"+longest+"s | %"+longest+"s | ",
+            System.out.printf("%"+longest+"s │ %"+longest+"s │ ",
                     lts[i],
                     fmt.format(lts[i].getArea()));
             for(int j=0; j<lts.length; j++) {
                 System.out.printf("%"+longest+"s%s",
-                        lts[i].equals(lts[j])? "T" : "F",
-                        j == lts.length - 1? "\n" : " | ");
+                        lts[i].equals(lts[j])? "Same" : "",
+                        j == lts.length - 1? "\n" : " │ ");
             }
         }
     }
