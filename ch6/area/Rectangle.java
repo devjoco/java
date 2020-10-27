@@ -6,4 +6,5 @@ public class Rectangle {
     }
     public double getLength() { return length; }
     public double getWidth() { return width; }
+    public String toString() { return "Rectangle{l="+length+" w="+width+"}"; }
 }

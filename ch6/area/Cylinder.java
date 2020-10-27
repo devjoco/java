@@ -6,4 +6,5 @@ public class Cylinder {
     }
     public double getRadius() { return radius; }
     public double getHeight() { return height; }
+    public String toString() { return "Cylinder{r="+radius+" h="+height+"}"; }
 }
