@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 import java.io.*;
 
 public class DemoCashRegister {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FileWriter  file   = new FileWriter("Receipts.txt", true);
         PrintWriter writer = new PrintWriter(file);
         DecimalFormat cash = new DecimalFormat("¤#,##0.00");
@@ -32,9 +32,14 @@ public class DemoCashRegister {
         reg = new CashRegister(new RetailItem(desc, retail), quantity);
 
         // Display subtotal, sales tax, total
-        System.out.println();
-        System.out.printf("%8s: %8s\n", "Sub", cash.format(reg.getSubtotal()));
-        System.out.printf("%8s: %8s\n", "Tax", cash.format(reg.getTax()));
-        System.out.printf("%8s: %8s\n", "Total", cash.format(reg.getTotal()));
+        writer.printf("SALES RECEIPT\n");
+        writer.printf("%11s: %8s\n", "Unit Price", cash.format(retail));
+        writer.printf("%11s: %8s\n", "Quantity", quantity);
+        writer.printf("%11s: %8s\n", "Sub", cash.format(reg.getSubtotal()));
+        writer.printf("%11s: %8s\n", "Tax", cash.format(reg.getTax()));
+        writer.printf("%11s: %8s\n", "Total", cash.format(reg.getTotal()));
+        writer.printf("\n");
+
+        writer.close();
     }
 }
