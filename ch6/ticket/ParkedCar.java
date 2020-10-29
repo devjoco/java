@@ -1,3 +1,10 @@
+/**
+ * This class simulates a parked car.
+ *
+ * Responsibilities:
+ *   - Know the car's make, model, color, license number.
+ *   - Know the number of minutes the car has been parked.
+ */
 public class ParkedCar {
     private String make;
     private String model;

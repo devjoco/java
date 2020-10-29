@@ -1,3 +1,11 @@
+/**
+ * This class simulates a parking ticket.
+ *
+ * Responsibilities:
+ *   - Report the make, model, color, and license of the illegally parked car.
+ *   - Report fine amount ($25 for first hour, plus $10 each add'l hour).
+ *   - Report the name and badge number of the cop issuing the ticket.
+ */
 public class ParkingTicket {
     private PoliceOfficer cop;
     private ParkedCar car;
