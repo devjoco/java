@@ -13,9 +13,20 @@ public class ParkedCar {
         minutes = mi;
     }
 
+    public ParkedCar(ParkedCar pc) {
+        this(pc.make, pc.model, pc.color, pc.license, pc.minutes);
+    }
+
     public String getMake()    { return make;    }
     public String getModel()   { return model;   }
     public String getColor()   { return color;   }
     public String getLicense() { return license; }
     public int    getMinutes() { return minutes; }
+
+    public void setMake(String newMake)       { make    = newMake;    }
+    public void setModel(String newModel)     { model   = newModel;   }
+    public void setColor(String newColor)     { color   = newColor;   }
+    public void setLicense(String newLicense) { license = newLicense; }
+    public void setMinutes(int newMinutes) { minutes = newMinutes; }
+
 }

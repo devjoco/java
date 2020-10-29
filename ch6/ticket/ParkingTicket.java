@@ -12,4 +12,8 @@ public class ParkingTicket {
     public PoliceOfficer getCop()  { return cop; }
     public ParkedCar     getCar()  { return car; }
     public int           getFine() { return fine; }
+
+    public void setCop(PoliceOfficer po) { cop = new PoliceOfficer(po); }
+    public void setCar(ParkedCar c)      { car = new ParkedCar(c);      }
+
 }
