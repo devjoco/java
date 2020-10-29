@@ -6,4 +6,7 @@ public class PoliceOfficer {
         this.name = name;
         this.badgeNumber = badgeNumber;
     }
+
+    public String getName()        { return name;        }
+    public int    getBadgeNumber() { return badgeNumber; }
 }

@@ -1,7 +1,9 @@
 public class ParkingMeter {
     private int minutes;
 
-    public ParkingMeter(int mi) {
+    public ParkingMeter(int min) {
         minutes = min;
     }
+
+    public int getMinutes() { return minutes; }
 }

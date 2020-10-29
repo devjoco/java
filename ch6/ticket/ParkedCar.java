@@ -12,4 +12,10 @@ public class ParkedCar {
         license = li;
         minutes = mi;
     }
+
+    public String getMake()    { return make;    }
+    public String getModel()   { return model;   }
+    public String getColor()   { return color;   }
+    public String getLicense() { return license; }
+    public int    getMinutes() { return minutes; }
 }

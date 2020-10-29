@@ -8,4 +8,8 @@ public class ParkingTicket {
         this.car = car;
         this.fine = fine;
     }
+
+    public PoliceOfficer getCop()  { return cop; }
+    public ParkedCar     getCar()  { return car; }
+    public int           getFine() { return fine; }
 }
