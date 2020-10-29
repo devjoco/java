@@ -34,6 +34,6 @@ public class ParkedCar {
     public void setModel(String newModel)     { model   = newModel;   }
     public void setColor(String newColor)     { color   = newColor;   }
     public void setLicense(String newLicense) { license = newLicense; }
-    public void setMinutes(int newMinutes) { minutes = newMinutes; }
+    public void setMinutes(int newMinutes)    { minutes = newMinutes; }
 
 }

@@ -21,7 +21,27 @@ public class ParkingTicket {
     public ParkedCar     getCar()  { return car; }
     public int           getFine() { return fine; }
 
-    public void setCop(PoliceOfficer po) { cop = new PoliceOfficer(po); }
-    public void setCar(ParkedCar c)      { car = new ParkedCar(c);      }
+    public void setCop(PoliceOfficer po) { cop  = new PoliceOfficer(po); }
+    public void setCar(ParkedCar c)      { car  = new ParkedCar(c);      }
+    public void setFine(int newFine)     { fine = newFine;               }
+
+    /**
+     * Prints the make, model, color, and license of the illegally parked car
+     * to std.out
+     *
+     * e.g.:
+     * Car Info
+     *  Make:    Ford
+     *  Model:   Explorer
+     *  Color:   Gold
+     *  License: A64GPP
+     */
+    public void reportCarInfo() {
+        System.out.println();
+        System.out.printf("%8s %s\n", "Make:", car.getMake());
+        System.out.printf("%8s %s\n", "Make:", car.getModel());
+        System.out.printf("%8s %s\n", "Make:", car.getColor());
+        System.out.printf("%8s %s\n", "Make:", car.getLicense());
+    }
 
 }
