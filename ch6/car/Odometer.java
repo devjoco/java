@@ -21,7 +21,7 @@ public class Odometer {
 
     // Mutators
     public void incMileage() { 
-        mileage++; 
+        mileage = (mileage == 999999)? 0 : ++mileage;
         newMiles++;
     }
 }
