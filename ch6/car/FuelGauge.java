@@ -7,4 +7,13 @@
  *   - Decrement fuel by 1 gallon (Min of 0).
  */
 public class FuelGauge {
+    private int fuel;
+
+    public FuelGauge(int initFuel) {
+        fuel = initFuel;
+    }
+
+    public FuelGauge(FuelGauge fg) {
+        this(fg.fuel);
+    }
 }
