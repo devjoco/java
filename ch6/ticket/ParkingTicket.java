@@ -32,39 +32,40 @@ public class ParkingTicket {
      * to std.out
      *
      * e.g.:
-     * Car Info
-     *  Make:    Ford
-     *  Model:   Explorer
-     *  Color:   Gold
-     *  License: A64GPP
-     *
-     * Fine
-     *  $xxx
-     *
-     * Issuing Officer
-     *  Terrance O'Connor
-     *  Badge #744
-     *  
+     * ┌────────────────────────┐
+     * │Car Info                │
+     * │  Make:    Ford         │
+     * │  Model:   Explorer     │
+     * │  Color:   Gold         │
+     * │  License: A64GPP       │
+     * ├────────────────────────┤
+     * │Fine                    │
+     * │  $xxx                  │
+     * ├────────────────────────┤
+     * │Issuing Officer         │
+     * │  #744 Terrance O'Connor│
+     * └────────────────────────┘
      */
     public void reportTicket() {
         DecimalFormat money = new DecimalFormat("¤#,##0.00");
-        DecimalFormat badge = new DecimalFormat("'#000");
+        DecimalFormat badge = new DecimalFormat("'#'000");
 
         // Car info
-        System.out.println("\nCar Info");
-        System.out.printf("\t%8s %s\n", "Make:", car.getMake());
-        System.out.printf("\t%8s %s\n", "Model:", car.getModel());
-        System.out.printf("\t%8s %s\n", "Color:", car.getColor());
-        System.out.printf("\t%8s %s\n", "License:", car.getLicense());
+        System.out.printf("\nCar Info\n");
+        System.out.printf("  %-8s %s\n", "Make:", car.getMake());
+        System.out.printf("  %-8s %s\n", "Model:", car.getModel());
+        System.out.printf("  %-8s %s\n", "Color:", car.getColor());
+        System.out.printf("  %-8s %s\n", "License:", car.getLicense());
 
         // Fine info
-        System.out.println("Fine");
-        System.out.printf("\t%s", money.format(fine));
+        System.out.printf("Fine\n");
+        System.out.printf("  %s\n", money.format(fine));
 
         // POlice Officer info
-        System.out.println("Issuing Officer");
-        System.out.printf("\t%s", cop.getName());
-        System.out.printf("\t%s", badge.format(cop.getBadgeNumber()));
+        System.out.printf("Issuing Officer\n");
+        System.out.printf("  %s %s\n", 
+                badge.format(cop.getBadgeNumber()),
+                cop.getName());
     }
 
 

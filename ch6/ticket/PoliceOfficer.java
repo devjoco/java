@@ -31,12 +31,28 @@ public class PoliceOfficer {
     }
 
     public ParkingTicket issueTicket(ParkedCar car, ParkingMeter meter) {
-        int hours = 
-            (int) Math.ceil((car.getMinutes() - meter.getMinutes()) / 60.0);
-        int amt = 25 + 10 * (hours - 1);
+        int minExpired = car.getMinutes() - meter.getMinutes();
+        int fine = 25 + 10 * (getHoursCharged(minExpired) - 1);
         return new ParkingTicket(new PoliceOfficer(this), 
                                  new ParkedCar(car), 
-                                 amt);
+                                 fine);
+    }
+
+    public ParkingTicket issueIfExpired(ParkedCar car, ParkingMeter meter) {
+        ParkingTicket ticket = null;
+        if(car.getMinutes() > meter.getMinutes()) {
+            int hours = (int) // Continued on next line
+                Math.ceil((car.getMinutes() - meter.getMinutes()) / 60.0);
+            int amt = 25 + 10 * (hours - 1);
+            ticket = new ParkingTicket(new PoliceOfficer(this), 
+                                       new ParkedCar(car), 
+                                       amt);
+        }
+        return ticket;
+    }
+
+    private int getHoursCharged(int minExpired) {
+        return (int) Math.ceil(minExpired / 60.0);
     }
 
 }
