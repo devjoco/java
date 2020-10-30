@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 /**
  * This class simulates a parking ticket.
  *
@@ -35,13 +37,35 @@ public class ParkingTicket {
      *  Model:   Explorer
      *  Color:   Gold
      *  License: A64GPP
+     *
+     * Fine
+     *  $xxx
+     *
+     * Issuing Officer
+     *  Terrance O'Connor
+     *  Badge #744
+     *  
      */
-    public void reportCarInfo() {
-        System.out.println();
-        System.out.printf("%8s %s\n", "Make:", car.getMake());
-        System.out.printf("%8s %s\n", "Make:", car.getModel());
-        System.out.printf("%8s %s\n", "Make:", car.getColor());
-        System.out.printf("%8s %s\n", "Make:", car.getLicense());
+    public void reportTicket() {
+        DecimalFormat money = new DecimalFormat("¤#,##0.00");
+        DecimalFormat badge = new DecimalFormat("'#000");
+
+        // Car info
+        System.out.println("\nCar Info");
+        System.out.printf("\t%8s %s\n", "Make:", car.getMake());
+        System.out.printf("\t%8s %s\n", "Make:", car.getModel());
+        System.out.printf("\t%8s %s\n", "Make:", car.getColor());
+        System.out.printf("\t%8s %s\n", "Make:", car.getLicense());
+
+        // Fine info
+        System.out.println("Fine");
+        System.out.printf("\t%s", money.format(fine));
+
+        // POlice Officer info
+        System.out.println("Issuing Officer");
+        System.out.printf("\t%s", cop.getName());
+        System.out.printf("\t%s", badge.format(cop.getBadgeNumber()));
     }
+
 
 }
