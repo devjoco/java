@@ -31,12 +31,12 @@ public class PoliceOfficer {
     }
 
     public ParkingTicket issueTicket(ParkedCar car, ParkingMeter meter) {
-        int hours = (int)Math.ceil((car.getMinutes() - meter.getMinutes()) 
-                / 60.0);
+        int hours = 
+            (int) Math.ceil((car.getMinutes() - meter.getMinutes()) / 60.0);
         int amt = 25 + 10 * (hours - 1);
         return new ParkingTicket(new PoliceOfficer(this), 
-                new ParkedCar(car), 
-                amt);
+                                 new ParkedCar(car), 
+                                 amt);
     }
 
 }

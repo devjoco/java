@@ -53,9 +53,9 @@ public class ParkingTicket {
         // Car info
         System.out.println("\nCar Info");
         System.out.printf("\t%8s %s\n", "Make:", car.getMake());
-        System.out.printf("\t%8s %s\n", "Make:", car.getModel());
-        System.out.printf("\t%8s %s\n", "Make:", car.getColor());
-        System.out.printf("\t%8s %s\n", "Make:", car.getLicense());
+        System.out.printf("\t%8s %s\n", "Model:", car.getModel());
+        System.out.printf("\t%8s %s\n", "Color:", car.getColor());
+        System.out.printf("\t%8s %s\n", "License:", car.getLicense());
 
         // Fine info
         System.out.println("Fine");
