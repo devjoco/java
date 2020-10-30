@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class DemoCar {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(system.in);
+        Scanner scan = new Scanner(System.in);
 
         System.out.println("How much fuel are you putting in your car?");
         System.out.printf("Gallons: ");
