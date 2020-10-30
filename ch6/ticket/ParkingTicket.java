@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
  * This class simulates a parking ticket.
  *
  * Responsibilities:
- *   - Report the make, model, color, and license of the illegally parked car.
+ *   - Report the make, model, color, and plate of the illegally parked car.
  *   - Report fine amount ($25 for first hour, plus $10 each add'l hour).
  *   - Report the name and badge number of the cop issuing the ticket.
  */
@@ -28,7 +28,7 @@ public class ParkingTicket {
     public void setFine(int newFine)     { fine = newFine;               }
 
     /**
-     * Prints the make, model, color, and license of the illegally parked car
+     * Prints the make, model, color, and plate of the illegally parked car
      * to std.out
      *
      * e.g.:
@@ -37,7 +37,7 @@ public class ParkingTicket {
      * │  Make:    Ford         │
      * │  Model:   Explorer     │
      * │  Color:   Gold         │
-     * │  License: A64GPP       │
+     * │  Plate:   A64GPP       │
      * ├────────────────────────┤
      * │Fine                    │
      * │  $xxx                  │
@@ -47,25 +47,23 @@ public class ParkingTicket {
      * └────────────────────────┘
      */
     public void reportTicket() {
-        DecimalFormat money = new DecimalFormat("¤#,##0.00");
-        DecimalFormat badge = new DecimalFormat("'#'000");
+        String money = new DecimalFormat("¤#,##0.00").format(fine);
+        String badge = new DecimalFormat("'#'000").format(cop.getBadgeNumber());
 
-        // Car info
-        System.out.printf("\nCar Info\n");
-        System.out.printf("  %-8s %s\n", "Make:", car.getMake());
-        System.out.printf("  %-8s %s\n", "Model:", car.getModel());
-        System.out.printf("  %-8s %s\n", "Color:", car.getColor());
-        System.out.printf("  %-8s %s\n", "License:", car.getLicense());
-
-        // Fine info
-        System.out.printf("Fine\n");
-        System.out.printf("  %s\n", money.format(fine));
-
-        // POlice Officer info
-        System.out.printf("Issuing Officer\n");
-        System.out.printf("  %s %s\n", 
-                badge.format(cop.getBadgeNumber()),
-                cop.getName());
+        System.out.printf("\n");
+        System.out.printf("┌────────────────────────┐\n");
+        System.out.printf("│%s%-9s%-15s│\n", "", "Car Info", "");
+        System.out.printf("│%s%-9s%-13s│\n", "  ", "Make:",  car.getMake());
+        System.out.printf("│%s%-9s%-13s│\n", "  ", "Model:", car.getModel());
+        System.out.printf("│%s%-9s%-13s│\n", "  ", "Color:", car.getColor());
+        System.out.printf("│%s%-9s%-13s│\n", "  ", "Plate:", car.getPlate());
+        System.out.printf("├────────────────────────┤\n");
+        System.out.printf("│%s%-9s%-15s│\n", "", "Fine", "");
+        System.out.printf("│%s%-9s%-13s│\n", "  ", money,  "");
+        System.out.printf("├────────────────────────┤\n");
+        System.out.printf("│%s%-9s%-15s│\n", "", "Officer", "");
+        System.out.printf("│%s%-5s%-17s│\n", "  ", badge, cop.getName());
+        System.out.printf("└────────────────────────┘\n");
     }
 
 
