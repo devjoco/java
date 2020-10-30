@@ -7,13 +7,21 @@
  *   - Decrease fuel in FuelGauge for every 24 miles traveled.
  */
 public class Odometer {
+    // Fields
     private int mileage;
+    private int newMiles = 0;
 
-    public Odometer(int initMileage) {
-        mileage = initMileage;
-    }
+    // Constructors
+    public Odometer(int initMileage) { mileage = initMileage; }
+    public Odometer(Odometer od)     { this(od.mileage);      }
 
-    public Odometer(Odometer od) {
-        this(od.mileage);
+    // Accessors
+    public int getMileage()  { return mileage; }
+    public int getNewMiles() { return newMiles; }
+
+    // Mutators
+    public void incMileage() { 
+        mileage++; 
+        newMiles++;
     }
 }
