@@ -8,9 +8,19 @@ import java.util.Scanner;
  *   - Have user determine how much gas to put in, up to 15 Gallons
  *   - Simulate driving car by incrementing Odometer until fuel runs out
  *   - Print car mileage and fuel amount during each iteration of loop
+ *
+ * Usage:
+ *   java DemoCar [-v] 
  */
 public class DemoCar {
     public static void main(String[] args) {
+        int verbose = 0;
+        if (args.length > 0) 
+            if (args[0].equals("-v")) 
+                verbose += 1;
+            else if (args[0].equals("-vv"))
+                verbose += 2;
+
         Scanner scan = new Scanner(System.in);
 
         System.out.println("How much fuel are you putting in your car?");
@@ -38,10 +48,14 @@ public class DemoCar {
 
         Car car = new Car(fg, od);
 
-        car.reportGauges();
+        if (verbose != 2)
+            System.out.printf("┌─────────────┬──────────────────┐\n");
+        car.reportGauges(verbose);
         while(car.hasFuel()) {
             car.drive();
-            car.reportGauges();
+            car.reportGauges(verbose);
         }
+        if (verbose != 2)
+            System.out.printf("└─────────────┴──────────────────┘\n");
     }
 }

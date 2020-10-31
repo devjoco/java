@@ -11,11 +11,26 @@ public class Car {
     }
 
     // Prints fuel and mileage
-    public void reportGauges() {
-        System.out.printf("┌─────────────┬─────────────────┐\n");
-        System.out.printf("│Fuel: %2d gal │ Mileage: %,6d │\n", 
-                fg.getFuel(), od.getMileage());
-        System.out.printf("└─────────────┴─────────────────┘\n");
+    public void reportGauges(int verbose) {
+        switch(verbose) {
+            case 0:
+                System.out.printf("│Fuel: %2d gal │ Mileage: %,7d │\n", 
+                        fg.getFuel(), od.getMileage());
+                break;
+            case 1:
+                System.out.printf("│Fuel: %2d gal │ Mileage: %,7d │\n", 
+                        fg.getFuel(), od.getMileage());
+                if (fg.getFuel() != 0)
+                    System.out.printf("├─────────────┼──────────────────┤\n");
+                break;
+            case 2:
+                System.out.printf("┌─────────────┬──────────────────┐\n");
+                System.out.printf("│Fuel: %2d gal │ Mileage: %,7d │\n", 
+                        fg.getFuel(), od.getMileage());
+                System.out.printf("└─────────────┴──────────────────┘\n");
+                break;
+            default:
+        }
     }
 
     // If has gas, increase mileage and decrease fuel if necessary.
