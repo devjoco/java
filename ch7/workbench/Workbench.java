@@ -50,26 +50,26 @@ public class Workbench {
         // Problem 6
         System.out.println("Problem 6");
         int[][] grades = new int[30][10];
-        System.out.print("   ");
-        for(int i=0; i<grades[0].length; i++)
-            System.out.printf("%2d", i);
-        System.out.println();
-        for(int row=0; row<grades.length; row++) {
-            System.out.printf("%2d: ", row);
-            for(int col=0; col<grades[row].length; col++)
-                System.out.printf("%d ", grades[row][col]);
-            System.out.println();
-        }
         System.out.println();
         System.out.println();
 
         // Problem 7
         System.out.println("Problem 7");
+        int avg, total = 0;
+        for(int[] row: grades)
+            for(int grade: row)
+                total += grade;
+        avg = total / (grades.length * grades[0].length);
         System.out.println();
         System.out.println();
 
         // Problem 8
         System.out.println("Problem 8");
+        int[][] numberArray = new int[9][11];
+        int lastRow = numberArray.length-1;
+        int lastCol = numberArray[0].length-1;
+        numberArray[0][0] = 145;
+        numberArray[lastRow][lastCol] = 145;
         System.out.println();
         System.out.println();
 
