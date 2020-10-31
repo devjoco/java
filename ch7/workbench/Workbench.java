@@ -28,5 +28,12 @@ public class Workbench {
         for(int i=0; i<countries.length; ++i)
             System.out.printf("(%s: %,d) ", countries[i], populations[i]);
         System.out.println();
+
+        // Problem 5
+        int[] ids = {123,234,345,456,567,678,789,890,901,012};
+        double[] grossPay = {12.3,23.4,34.5,45.6,56.7,67.8,78.9,89.0,90.1,1.2};
+        for(int i=0; i<ids.length; i++)
+            System.out.printf("(%d: %.2f) ", ids[i], grossPay[i]);
+        System.out.println();
     }
 }
