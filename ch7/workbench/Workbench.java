@@ -49,6 +49,17 @@ public class Workbench {
 
         // Problem 6
         System.out.println("Problem 6");
+        int[][] grades = new int[30][10];
+        System.out.print("   ");
+        for(int i=0; i<grades[0].length; i++)
+            System.out.printf("%2d", i);
+        System.out.println();
+        for(int row=0; row<grades.length; row++) {
+            System.out.printf("%2d: ", row);
+            for(int col=0; col<grades[row].length; col++)
+                System.out.printf("%d ", grades[row][col]);
+            System.out.println();
+        }
         System.out.println();
         System.out.println();
 
