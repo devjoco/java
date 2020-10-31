@@ -18,7 +18,7 @@ public class Workbench {
         // Problem 3
         String[] names = {"Einstein", "Newton", "Copernicus", "Kepler"};
         for(String name : names)
-            System.out.print(name + " " + name.length() + ",");
+            System.out.printf("(%s, %d) ", name, name.length());
         System.out.println();
 
         // Problem 4
