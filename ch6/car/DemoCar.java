@@ -38,9 +38,10 @@ public class DemoCar {
 
         Car car = new Car(fg, od);
 
+        car.reportGauges();
         while(car.hasFuel()) {
-            car.reportGauges();
             car.drive();
+            car.reportGauges();
         }
     }
 }
