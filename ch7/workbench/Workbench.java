@@ -20,5 +20,13 @@ public class Workbench {
         for(String name : names)
             System.out.print(name + " " + name.length() + ",");
         System.out.println();
+
+        // Problem 4
+        String[] countries   = {"USA", "Japan", "China", "India"};
+        int[]    populations = {  328_200_000,   126_500_000,
+                                1_393_000_000, 1_353_000_000};
+        for(int i=0; i<countries.length; ++i)
+            System.out.printf("(%s: %,d) ", countries[i], populations[i]);
+        System.out.println();
     }
 }
