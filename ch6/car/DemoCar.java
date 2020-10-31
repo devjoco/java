@@ -15,11 +15,26 @@ public class DemoCar {
 
         System.out.println("How much fuel are you putting in your car?");
         System.out.printf("Gallons: ");
-        FuelGauge fg = new FuelGauge(scan.nextInt());
+        int gallons = scan.nextInt();
+        while(gallons < 0 || 15 < gallons) {
+            if(gallons < 0)
+                System.out.println("\nGallons cannot be negative.\n");
+            if(gallons > 15)
+                System.out.println("\nYour car can hold up to 15 gallons.\n");
+            System.out.printf("Gallons: ");
+            gallons = scan.nextInt();
+        }
+        FuelGauge fg = new FuelGauge(gallons);
 
         System.out.println("What is the current mileage on your car?");
         System.out.printf("Miles: ");
-        Odometer  od = new Odometer(scan.nextInt());
+        int miles = scan.nextInt();
+        while(miles < 0) {
+            System.out.println("Enter a valid, positive integer for miles.");
+            System.out.printf("Miles: ");
+            miles = scan.nextInt();
+        }
+        Odometer od = new Odometer(miles % 1000000);
 
         Car car = new Car(fg, od);
 
