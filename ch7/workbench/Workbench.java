@@ -1,8 +1,13 @@
+import java.util.Random;
+import java.util.ArrayList;
+
 /**
  * Algorithm Workbench problems from ch7.
  */
 public class Workbench {
     public static void main(String[] args) {
+        Random rng = new Random();
+
         // Problem 1
         System.out.println("Problem 1");
         int[] nums = new int[20];
@@ -122,11 +127,53 @@ public class Workbench {
 
         // Problem 10
         System.out.println("Problem 10");
+        int[][] days = new int[29][5];
+        int[] daysRowsTotal = new int[days.length];
+        int[] daysColsTotal = new int[days[0].length];
+        int rowTotal, colTotal;
+        // Randomly fill days[][] with numbers
+        for(int row=0; row<days.length; row++)
+            for(int col=0; col<days[0].length; col++)
+                days[row][col] = rng.nextInt(15) + 1;
+
+        // Sum each row, save row total in daysRowsTotal[i]
+        for(int row=0; row<days.length; row++) {
+            rowTotal = 0;
+            for(int col=0; col<days[0].length; col++)
+                rowTotal += days[row][col];
+            daysRowsTotal[row] = rowTotal;
+        }
+        // Sum each col, save col total in daysColsTotal[i]
+        for(int col=0; col<days[0].length; col++) {
+            colTotal = 0;
+            for(int row=0; row<days.length; row++)
+                colTotal += days[row][col];
+            daysColsTotal[col] = colTotal;
+        }
+        // Print the row totals
+        System.out.print("[");
+        for(int x: daysRowsTotal)
+            System.out.printf("%d, ", x);
+        System.out.print("\b\b]");
+        System.out.println();
+
+        // Print the col totals
+        System.out.print("[");
+        for(int y: daysColsTotal)
+            System.out.printf("%d, ", y);
+        System.out.print("\b\b]");
+        System.out.println();
+
         System.out.println();
         System.out.println();
 
         // Problem 11
         System.out.println("Problem 11");
+        ArrayList<String> cars = new ArrayList<>();
+        cars.add("Ford");
+        cars.add("Jeep");
+        cars.add("Saab");
+        System.out.println(cars);
         System.out.println();
         System.out.println();
     }
