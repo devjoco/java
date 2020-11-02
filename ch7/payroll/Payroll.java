@@ -46,11 +46,12 @@ public class Payroll {
             roll.calcWages(i);
         }
 
-        System.out.printf("┌───────────────────┐\n");
+        System.out.printf("┌─────────┬─────────┐\n");
         System.out.printf("│ %-7s │ %-7s │\n", "Emp. ID", "Wages");
+        System.out.printf("├─────────┼─────────┤\n");
         for(int i=0; i<ids.length; i++)
-            System.out.printf("│ %-7s │ %-7s │\n", 
-                    ids[i], roll.getWages(i));
-        System.out.printf("└───────────────────┘\n");
+            System.out.printf("│ %7s │ %7s │\n", 
+                    ids[i], money.format(roll.getWages(i)));
+        System.out.printf("└─────────┴─────────┘\n");
     }
 }
