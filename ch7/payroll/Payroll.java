@@ -9,20 +9,17 @@ import java.text.DecimalFormat;
 public class Payroll {
     private int[] employeeId = {5658845, 4520125, 7895122, 
                        8777541, 8451277, 1302850, 7580489};
-    private int[] hours      = new int[employeeId.length];
+    private int[]    hours   = new int[employeeId.length];
     private double[] payRate = new double[employeeId.length],
                      wages   = new double[employeeId.length];
 
-    public int[] getIds() { return employeeId; };
-    public double getWages(int idx) { return wages[idx]; }
+    public int[]  getIds()          { return employeeId;   }
+    public double getWages(int idx) { return wages[idx];   }
+    public int    getHours(int idx) { return hours[idx];   }
+    public double getRate(int idx)  { return payRate[idx]; }
 
-    public void setHours(int idx, int hours) {
-        this.hours[idx] = hours;
-    }
-
-    public void setRate(int idx, double payRate) {
-        this.payRate[idx] = payRate;
-    }
+    public void setHours(int idx, int hours)  { this.hours[idx] = hours; }
+    public void setRate(int idx, double rate) { payRate[idx]    = rate;  }
 
     public void calcWages(int idx) {
         wages[idx] = hours[idx] * payRate[idx];
@@ -41,8 +38,20 @@ public class Payroll {
             System.out.printf("\nEmployee #%d\n", ids[i]);
             System.out.printf("Hours: ");
             roll.setHours(i, scan.nextInt());
+            while(roll.getHours(i) < 0) {
+                System.out.println("\nHours cannot be negative!");
+                System.out.printf("Hours: ");
+                roll.setHours(i, scan.nextInt());
+            }
+
             System.out.printf("Rate: $");
             roll.setRate(i, scan.nextDouble());
+            while(roll.getRate(i) < 6.00) {
+                System.out.println("\nRate cannot be less than $6.00!");
+                System.out.printf("Rate: ");
+                roll.setRate(i, scan.nextDouble());
+            }
+
             roll.calcWages(i);
         }
 
