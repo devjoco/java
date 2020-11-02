@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
 /**
  * Payroll class.
  * Asks user for each employee's hours and wages, calculates gross pay.
@@ -12,5 +15,27 @@ public class Payroll {
 
     
     public static void main(String[] args) {
+        Scanner       scan  = new Scanner(System.in);
+        DecimalFormat money = new DecimalFormat("¤#,##0.00");
+        Payroll       roll  = new Payroll();
+
+        System.out.println("Enter each employee's hours and pay rate.");
+        ids = roll.getIds();                    // TODO
+
+        for(int i=0; i<ids.length; i++) {
+            System.out.printf("\nEmployee #%d\n", ids[i]);
+            System.out.printf("Hours: ");
+            roll.setHours(i, scan.nextInt());   // TODO 
+            System.out.printf("Rate: $");
+            roll.setRate(i, scan.nextInt());    // TODO 
+            roll.calcWages(i);                  // TODO
+        }
+
+        System.out.printf("┌───────────────────┐\n");
+        System.out.printf("│ %-7s │ %-7s │\n", "Emp. ID", "Wages");
+        for(int i=0; i<ids.length; i++)
+            System.out.printf("│ %-7s │ %-7s │\n", 
+                    roll.getId(i), roll.getWages(i));
+        System.out.printf("└───────────────────┘\n");
     }
 }
