@@ -1,20 +1,25 @@
 import java.util.Scanner;
+import java.io.*;
 
 public class DemoChargeAccount {
-    public static void main(String[] args) { 
+    public static void main(String[] args) throws IOException { 
         Scanner scan    = new Scanner(System.in);
         boolean verbose = false;
+        String filename = "";
 
         for(String arg: args) {
             if (arg.equals("-v")) {
                 verbose = true;
             } else if (arg.matches("-f=.*")) {
-                String filename = arg.substring(arg.indexOf("=")+1);
+                filename = arg.substring(arg.indexOf("=")+1);
                 System.out.printf("Filename: %s\n", filename);
             }
         }
 
-        ChargeAccount account = new ChargeAccount();
+        ChargeAccount account = filename.equals("")? 
+            new ChargeAccount() :
+            new ChargeAccount(filename);
+                                                    ;
         account.showValids();
 
         System.out.println("What number are you checking? (-1 to exit)");
