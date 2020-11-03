@@ -1,11 +1,11 @@
 public class ChargeAccount {
-    private static int[] validNums = { 
+    private int[] validNums = { 
         100, 125, 130, 385, 452, 456,
         458, 505, 555, 565, 654, 757,
         782, 788, 789, 808, 845, 877
     };
 
-    public static void showValids() {
+    public void showValids() {
         System.out.println("Valid Numbers:");
         for(int num: validNums)
             System.out.printf("%d ", num);
@@ -13,7 +13,7 @@ public class ChargeAccount {
         System.out.println();
     }
 
-    public static boolean isValidSeq(int num, boolean verbose) {
+    public boolean isValidSeq(int num, boolean verbose) {
         boolean found = false;
         for(int i=0; i<validNums.length; i++) {
             int elem = validNums[i];
@@ -29,7 +29,7 @@ public class ChargeAccount {
         return found;
     }
 
-    public static boolean isValidBin(int num, boolean verbose) { 
+    public boolean isValidBin(int num, boolean verbose) { 
         boolean found = false;
         int mid,
             elem,

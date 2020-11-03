@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.io.*;
 
 public class DemoChargeAccount {
     public static void main(String[] args) { 
@@ -15,21 +14,19 @@ public class DemoChargeAccount {
             }
         }
 
-        if(args.length > 0 && args[0].equals("-v")) 
-            verbose = true;
-
-        ChargeAccount.showValids();
+        ChargeAccount account = new ChargeAccount();
+        account.showValids();
 
         System.out.println("What number are you checking? (-1 to exit)");
         System.out.print("Number: ");
         int num = scan.nextInt();
         while (num != -1) {
-            if(ChargeAccount.isValidSeq(num, verbose))
+            if(account.isValidSeq(num, verbose))
                 System.out.println("Sequential Valid");
             else
                 System.out.println("Sequential Invalid");
 
-            if(ChargeAccount.isValidBin(num, verbose))
+            if(account.isValidBin(num, verbose))
                 System.out.println("Binary Valid");
             else
                 System.out.println("Binary Invalid");
