@@ -13,10 +13,15 @@ public class ChargeAccount {
         System.out.println();
     }
 
-    public static boolean isValidSeq(int num) {
+    public static boolean isValidSeq(int num, boolean verbose) {
         boolean found = false;
         for(int i=0; i<validNums.length; i++) {
-            if(validNums[i] == num) {
+            int elem = validNums[i];
+
+            if(verbose)
+                System.out.printf("Checking %d\n", elem);
+
+            if(elem == num) {
                 found = true;
                 break;
             }
@@ -24,7 +29,7 @@ public class ChargeAccount {
         return found;
     }
 
-    public static boolean isValidBin(int num) { 
+    public static boolean isValidBin(int num, boolean verbose) { 
         boolean found = false;
         int mid,
             elem,
@@ -34,6 +39,10 @@ public class ChargeAccount {
         while(!found && lower <= upper) {
             mid = (upper + lower) / 2;
             elem = validNums[mid];
+
+            if(verbose)
+                System.out.printf("Checking %d\n", elem);
+
             if(elem == num)
                 found = true;
             else if(elem > num)

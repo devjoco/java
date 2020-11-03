@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class DemoChargeAccount {
     public static void main(String[] args) { 
         Scanner scan = new Scanner(System.in);
+        boolean verbose = false;
 
         ChargeAccount.showValids();
 
@@ -10,7 +11,7 @@ public class DemoChargeAccount {
         System.out.print("Number: ");
         int num = scan.nextInt();
         while (num != -1) {
-            if(ChargeAccount.isValidBin(num))
+            if(ChargeAccount.isValidBin(num, verbose))
                 System.out.println("Valid");
             else
                 System.out.println("Invalid");
