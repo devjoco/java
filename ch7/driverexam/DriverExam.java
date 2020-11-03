@@ -22,10 +22,14 @@ public class DriverExam {
     }
 
     public boolean passed() { 
+        return totalCorrect() >= PASSING_AMOUNT;
+    }
+
+    public int totalCorrect() {
         int numCorrect = 0;
         for(int i=0; i<correctAns.length; i++)
             if(studentAns[i] == correctAns[i])
                 numCorrect++;
-        return numCorrect >= PASSING_AMOUNT;
+        return numCorrect;
     }
 }
