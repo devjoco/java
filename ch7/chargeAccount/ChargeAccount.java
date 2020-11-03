@@ -23,8 +23,23 @@ public class ChargeAccount {
     }
 
     public static boolean isValidBin(int num) { 
-        return false;
+        boolean found = false;
+        int mid,
+            elem,
+            lower = 0,
+            upper = validNums.length - 1;
+
+        while(!found && lower <= upper) {
+            mid = (upper + lower) / 2;
+            elem = validNums[mid];
+            if(elem == num)
+                found = true;
+            else if(elem > num)
+                upper = mid - 1;
+            else
+                lower = mid + 1;
+        }
+
+        return found;
     }
-
-
 }

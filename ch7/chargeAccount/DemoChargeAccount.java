@@ -10,7 +10,7 @@ public class DemoChargeAccount {
         System.out.print("Number: ");
         int num = scan.nextInt();
         while (num != -1) {
-            if(ChargeAccount.isValidSeq(num)) {
+            if(ChargeAccount.isValidBin(num)) {
                 System.out.println("That's a valid number!");
             } else {
                 System.out.println("Not a valid number!!!!");
