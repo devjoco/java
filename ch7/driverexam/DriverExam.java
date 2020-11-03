@@ -11,4 +11,8 @@
  *   - return the numbers of the Qs that were missed
  */
 public class DriverExam {
+    private char[] studentAns, correctAns = {
+        'B', 'D', 'A', 'A', 'C', 'A', 'B', 'A', 'C', 'D',
+        'B', 'C', 'D', 'A', 'D', 'C', 'C', 'B', 'D', 'A'
+    };
 }
