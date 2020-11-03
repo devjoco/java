@@ -1,9 +1,39 @@
+import java.io.*;
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class ChargeAccount {
-    private int[] validNums = { 
-        100, 125, 130, 385, 452, 456,
-        458, 505, 555, 565, 654, 757,
-        782, 788, 789, 808, 845, 877
-    };
+    private int[] validNums;
+
+    public ChargeAccount() {
+        int[] defaultValidNums = { 100, 125, 130, 385, 452, 456,
+            458, 505, 555, 565, 654, 757,
+            782, 788, 789, 808, 845, 877 
+        };
+        validNums = defaultValidNums;
+    }
+
+    public ChargeAccount(String filename) throws IOException {
+        validNums = getNumsFromFile(filename);
+    }
+
+    private int[] getNumsFromFile(String filename) throws IOException {
+        File           file = new File(filename);
+        Scanner        scan = new Scanner(file);
+        ArrayList<Integer> nums = new ArrayList<>();
+        int[] result;
+
+        while(scan.hasNext())
+            nums.add(scan.nextInt());
+        scan.close();
+
+        result = new int[nums.size()];
+        for(int i=0; i<nums.size(); i++) {
+            result[i] = nums.get(i).intValue();
+        }
+
+        return result;
+    }
 
     public void showValids() {
         System.out.println("Valid Numbers:");
