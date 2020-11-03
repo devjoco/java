@@ -5,7 +5,6 @@ public class DemoChargeAccount {
     public static void main(String[] args) { 
         Scanner scan    = new Scanner(System.in);
         boolean verbose = false;
-        InputStream in  = System.in;
 
         for(String arg: args) {
             if (arg.equals("-v")) {
