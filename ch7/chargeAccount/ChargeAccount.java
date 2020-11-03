@@ -6,8 +6,10 @@ public class ChargeAccount {
     };
 
     public static void showValids() {
+        System.out.println("Valid Numbers:");
         for(int num: validNums)
             System.out.printf("%d ", num);
+        System.out.println();
         System.out.println();
     }
 

@@ -6,18 +6,17 @@ public class DemoChargeAccount {
 
         ChargeAccount.showValids();
 
-        System.out.println("What number are you looking for? (-1 to exit)");
+        System.out.println("What number are you checking? (-1 to exit)");
         System.out.print("Number: ");
         int num = scan.nextInt();
         while (num != -1) {
-            if(ChargeAccount.isValidBin(num)) {
-                System.out.println("That's a valid number!");
-            } else {
-                System.out.println("Not a valid number!!!!");
-            }
-        System.out.println("\nWhat number are you looking for? (-1 to exit)");
-        System.out.print("Number: ");
-        num = scan.nextInt();
+            if(ChargeAccount.isValidBin(num))
+                System.out.println("Valid");
+            else
+                System.out.println("Invalid");
+            System.out.println("\nWhat number are you checking? (-1 to exit)");
+            System.out.print("Number: ");
+            num = scan.nextInt();
         }
     }
 }
