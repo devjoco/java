@@ -5,6 +5,12 @@ public class ChargeAccount {
         782, 788, 789, 808, 845, 877
     };
 
+    public static void showValids() {
+        for(int num: validNums)
+            System.out.printf("%d ", num);
+        System.out.println();
+    }
+
     public static boolean isValidSeq(int num) {
         boolean found = false;
         for(int i=0; i<validNums.length; i++) {
