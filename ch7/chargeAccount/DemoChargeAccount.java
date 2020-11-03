@@ -10,8 +10,7 @@ public class DemoChargeAccount {
         for(String arg: args) {
             if (arg.equals("-v")) {
                 verbose = true;
-            }
-            if (arg.matches("-f=.*")) {
+            } else if (arg.matches("-f=.*")) {
                 String filename = arg.substring(arg.indexOf("=")+1);
                 System.out.printf("Filename: %s\n", filename);
             }
