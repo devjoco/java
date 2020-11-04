@@ -25,11 +25,46 @@ public class DriverExam {
         return totalCorrect() >= PASSING_AMOUNT;
     }
 
+    public int totalIncorrect() {
+        int num = 0;
+        for(int i=0; i<correctAns.length; i++)
+            if(studentAns[i] != correctAns[i])
+                num++;
+        return num;
+    }
+
     public int totalCorrect() {
-        int numCorrect = 0;
+        int num = 0;
         for(int i=0; i<correctAns.length; i++)
             if(studentAns[i] == correctAns[i])
-                numCorrect++;
-        return numCorrect;
+                num++;
+        return num;
     }
+
+    public int[] questionsMissed() {
+        int pos      = 0,
+            missed[] = new int[totalIncorrect()];
+        for(int i=0; i<correctAns.length; i++) {
+            if(studentAns[i] != correctAns[i]) {
+                missed[pos] = i + 1;
+                pos++;
+            }
+        }
+        return missed;
+    }
+
+    public void printMissed() {
+        int[] missed = questionsMissed();
+        boolean onePrinted = false;
+        System.out.print("Missed Questions: [");
+        for(int i=0; i<missed.length; i++) {
+            System.out.printf("%d, ", missed[i]);
+            onePrinted = true;
+        }
+        if (onePrinted)
+            System.out.print("\b\b]\n");
+        else
+            System.out.print("]\n");
+    }
+
 }
