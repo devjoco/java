@@ -13,8 +13,10 @@
 public class DriverExam {
     private final int PASSING_AMOUNT = 15;
     private char[] studentAns, correctAns = {
-        'B', 'D', 'A', 'A', 'C', 'A', 'B', 'A', 'C', 'D',
-        'B', 'C', 'D', 'A', 'D', 'C', 'C', 'B', 'D', 'A'
+    //   1    2    3    4    5    6    7    8    9    0
+        'B', 'A', 'B', 'D', 'C', 'C', 'B', 'A', 'B', 'A',
+        'C', 'C', 'A', 'A', 'A', 'B', 'A', 'A', 'A', 'A'
+        'A', 'B', 'A', 'A' 
     };
 
     public DriverExam(char[] ans) {

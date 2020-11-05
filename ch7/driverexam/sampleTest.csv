@@ -1,0 +1,24 @@
+This indicates in an array declaration the number of elements that an array is to have., subscript, *size declarator, element sum, reference variable
+Each element of an array is accessed by a number known as a(n), *subscript, size declarator, address, specifier
+The first subscript in an array is always, 1, *0, -1, 1 less than the number of elements
+The last subscript in an array is always, 100, 0, -1, *1 less than the number of elements
+Array bounds checking happens, when the program is compiled, when the program is saved, *when the program runs, when the program is loaded into memory
+This array field holds the number of elements that the array has., size, elements, *length, width
+This search algorithm steps through an array comparing each item with the search value., binary search, *sequential search, selection search, iterative search
+This search algorithm repeatedly divides the portion of an array being searched in half., *binary search, sequential search, selection search, iterative search
+This is the maximum number of comparisons performed by the sequential search on an array of N elements (assuming the search values are consistently found)., 2N, *N, N², N/2
+When initializing a two-dimensional array you enclose each row's initialization list in these., *braces, praentheses, brackets, quotation marks
+To store an item in an ArrayList object use this method., store, insert, *add, get
+To insert an item at a specific location in an ArrayList object, use this method., store, insert, *add, get
+To delete an item from an ArrayList object use this method., *remove, delete, erase, get
+To determine the number of items stored in an ArrayList object use this method., *size, capacity, items, length
+True or False: Java does not allow a statement to use a subscript that is outside the range of valid subscripts for an array., *True, False
+True or False: An array's size declarator can be a negative integer expression., True, *False
+True or False: Both of the following declarations are legal and equivalent: "int[] numbers;" and "int numbers[];", *True, False
+True or False: The subscript of the last element in a single-dimensional array is one less than the total number of elements in the array., *True, False
+True or False: The values in an initialization list are stored in the array in the order they appear in the list., *True, False
+True or False: The Java compiler does not display an error message when it processes a statement that uses an invalid subscript., *True, False
+True or False: When an array is passed to a method the method has access to the original array., *True, False
+True or False: The fist size declarator in the declaration of a two-dimensional array represents the nuber of columns. The second size declarator represents the number of rows., True, *False
+True or False: A two-dimensional array has multiple length fields., *True, False
+True or False: An ArrayList automatically expands in size to accompdate the items stored in it., *True, False
