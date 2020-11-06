@@ -25,6 +25,7 @@ import java.io.*;
  *       - filename for csv with Qs and As passed to the constructor
  */
 public class Exam {
+    private final int LINE_LENGTH = 80;
     private final double PASS_PERCENT = 0.75;
     private final char CORRECT_CHAR = '*';
     private char[] studentAns, correctAns;
@@ -65,8 +66,7 @@ public class Exam {
             numChoices = options.length;
 
             // Display current Question and Options
-            System.out.println();
-            System.out.printf("%d.) %s\n", qNum, question);
+            displayQuestion(question, qNum);
             displayOptions(Arrays.copyOfRange(currQ, 1, currQ.length),
                     csvAnswers);
 
@@ -84,6 +84,27 @@ public class Exam {
             correctAns[i] = csvAnswers.get(i);
             studentAns[i] = userAnswers.get(i);
         }
+    }
+
+    public void displayQuestion(String question, int qNum) {
+        String[] words = question.split(" ");
+        int charsThisLine = 0;
+
+        System.out.println();
+        System.out.printf("%3d.) ", qNum);
+        charsThisLine += 6;
+
+        for(String word: words) {
+            if(charsThisLine + word.length() + 1 > LINE_LENGTH) {
+                System.out.print("\n");
+                System.out.printf("      %s ", word);
+                charsThisLine = 6 + word.length();
+            } else {
+                System.out.printf("%s ", word);
+                charsThisLine += word.length() + 1;
+            }
+        }
+        System.out.println();
     }
 
     public void displayOptions(String[] options, ArrayList<Character> ans) {
