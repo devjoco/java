@@ -51,22 +51,43 @@ public class Exam {
         ArrayList<Character> userAnswers = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
         Scanner file = new Scanner(new File(filename));
-        String currQ[], option;
+        String currQ[], question, option;
         char label, correct, choice;
+        int qNum = 1;
 
+        // Loop through exam csv file
         while(file.hasNext()) {
+            // Display question
             currQ = file.nextLine().split(",");
-            System.out.println(currQ[0]);
+            question = currQ[0];
+            System.out.printf("%d.) %s\n", qNum, question);
+
+            // Display options for question
             for(int i=1; i<currQ.length; i++) {
                 label = (char)((int)'A' + i - 1);
                 option = currQ[i].trim();
+                // Remove * from correct answer, and remember label
                 if(option.charAt(0) == '*') {
                     csvAnswers.add(label);
                     option = option.substring(1);
                 }
-                System.out.printf("%c.) %s\n", label, option);
+                System.out.printf("\t%c.) %s\n", label, option);
             }
             System.out.println();
+            System.out.print("\tYour answer: ");
+            choice = scan.nextLine().toUpperCase().charAt(0);
+            userAnswers.add(choice);
+            System.out.println();
+
+            qNum++;
+        }
+
+        // Set correctAns and studentAns to csvAnswers and userAnswers
+        correctAns = new char[csvAnswers.size()];
+        studentAns = new char[userAnswers.size()];
+        for(int i=0; i<correctAns.length; i++) {
+            correctAns[i] = csvAnswers.get(i);
+            studentAns[i] = userAnswers.get(i);
         }
     }
 
