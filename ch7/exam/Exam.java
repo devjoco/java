@@ -51,17 +51,20 @@ public class Exam {
         ArrayList<Character> userAnswers = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
         Scanner file = new Scanner(new File(filename));
-        String[] currQ;
+        String currQ[], option;
+        char label, correct, choice;
 
         while(file.hasNext()) {
             currQ = file.nextLine().split(",");
             System.out.println(currQ[0]);
             for(int i=1; i<currQ.length; i++) {
-                char label = (char)((int)'A' + i - 1);
-                System.out.printf("%c.) %s\n",
-                        label, 
-                        currQ[i]
-                        );
+                label = (char)((int)'A' + i - 1);
+                option = currQ[i].trim();
+                if(option.charAt(0) == '*') {
+                    csvAnswers.add(label);
+                    option = option.substring(1);
+                }
+                System.out.printf("%c.) %s\n", label, option);
             }
             System.out.println();
         }
