@@ -49,17 +49,18 @@ public class Exam {
     public void displayTest(String filename) throws IOException {
         ArrayList<Character> csvAnswers  = new ArrayList<>();
         ArrayList<Character> userAnswers = new ArrayList<>();
-        Scanner scan = new Scanner(System.in);
         Scanner file = new Scanner(new File(filename));
         String currQ[], question, option;
-        char label, correct, choice;
-        int qNum = 1;
+        char label;
+        int numChoices, qNum = 1;
 
         // Loop through exam csv file
         while(file.hasNext()) {
+            System.out.println();
             // Display question
             currQ = file.nextLine().split(",");
             question = currQ[0];
+            numChoices = currQ.length - 1;
             System.out.printf("%d.) %s\n", qNum, question);
 
             // Display options for question
@@ -73,18 +74,11 @@ public class Exam {
                 }
                 System.out.printf("\t%c.) %s\n", label, option);
             }
-            System.out.println();
-            System.out.print("\tYour answer: ");
-            choice = scan.nextLine().toUpperCase().charAt(0);
-            while((int)choice < (int)'A' 
-                    || (int)'A' + currQ.length - 2 < (int)choice) {
-                System.out.print("\tInvalid choice\n\n");
-                System.out.print("\tYour answer: ");
-                choice = scan.nextLine().toUpperCase().charAt(0);
-            }
-            userAnswers.add(choice);
-            System.out.println();
 
+            // Save user's answer
+            userAnswers.add(validateUserChoice(numChoices));
+
+            // Adv. question number
             qNum++;
         }
 
@@ -95,6 +89,20 @@ public class Exam {
             correctAns[i] = csvAnswers.get(i);
             studentAns[i] = userAnswers.get(i);
         }
+    }
+
+    public char validateUserChoice(int numChoices) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println();
+        System.out.print("\tYour answer: ");
+        char choice = scan.nextLine().toUpperCase().charAt(0);
+        while((int)choice < (int)'A' 
+                || (((int)'A' - 1) + numChoices) < (int)choice) {
+            System.out.print("\tInvalid choice\n\n");
+            System.out.print("\tYour answer: ");
+            choice = scan.nextLine().toUpperCase().charAt(0);
+        }
+        return choice;
     }
 
     public boolean passed() { 
