@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.io.*;
 
 /**
@@ -25,6 +26,7 @@ import java.io.*;
  */
 public class Exam {
     private final double PASS_PERCENT = 0.75;
+    private final char CORRECT_CHAR = '*';
     private char[] studentAns, correctAns;
 
     /**
@@ -50,30 +52,23 @@ public class Exam {
         ArrayList<Character> csvAnswers  = new ArrayList<>();
         ArrayList<Character> userAnswers = new ArrayList<>();
         Scanner file = new Scanner(new File(filename));
-        String currQ[], question, option;
+        String currQ[], options[], question;
         char label;
         int numChoices, qNum = 1;
 
         // Loop through exam csv file
         while(file.hasNext()) {
-            System.out.println();
-            // Display question
+            // Get info for currect Question
             currQ = file.nextLine().split(",");
             question = currQ[0];
-            numChoices = currQ.length - 1;
-            System.out.printf("%d.) %s\n", qNum, question);
+            options  = Arrays.copyOfRange(currQ, 1, currQ.length);
+            numChoices = options.length;
 
-            // Display options for question
-            for(int i=1; i<currQ.length; i++) {
-                label = (char)((int)'A' + i - 1);
-                option = currQ[i].trim();
-                // Remove * from correct answer, and remember label
-                if(option.charAt(0) == '*') {
-                    csvAnswers.add(label);
-                    option = option.substring(1);
-                }
-                System.out.printf("\t%c.) %s\n", label, option);
-            }
+            // Display current Question and Options
+            System.out.println();
+            System.out.printf("%d.) %s\n", qNum, question);
+            displayOptions(Arrays.copyOfRange(currQ, 1, currQ.length),
+                    csvAnswers);
 
             // Save user's answer
             userAnswers.add(validateUserChoice(numChoices));
@@ -88,6 +83,22 @@ public class Exam {
         for(int i=0; i<correctAns.length; i++) {
             correctAns[i] = csvAnswers.get(i);
             studentAns[i] = userAnswers.get(i);
+        }
+    }
+
+    public void displayOptions(String[] options, ArrayList<Character> ans) {
+        String option;
+        char label;
+        // Display options for question
+        for(int i=0; i<options.length; i++) {
+            label = (char)((int)'A' + i);
+            option = options[i].trim();
+            // Remove * from correct answer, and remember label
+            if(option.charAt(0) == CORRECT_CHAR) {
+                ans.add(label);
+                option = option.substring(1);
+            }
+            System.out.printf("\t%c.) %s\n", label, option);
         }
     }
 
