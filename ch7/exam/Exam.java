@@ -9,6 +9,15 @@
  *   - return the total number of correctly answered Qs
  *   - return the total number of incorrect answers
  *   - return the numbers of the Qs that were missed
+ *
+ * Scenarios at instance creation:
+ *   1. Know the test questions/correct answers, not student answers
+ *       - Qs shown to user one at a time, allow the user to take the test
+ *       - filename for csv with Qs and As passed to the constructor
+ *   2. Know the correct answers and the student's answers
+ *       - Useful for calculating statistics on an exam already taken
+ *       - char[] passed to constructor for correct answers
+ *       - char[] passed to constructor for student's answers
  */
 public class Exam {
     private final double PASS_PERCENT = 0.75;
