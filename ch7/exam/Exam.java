@@ -1,30 +1,30 @@
 /**
- * Simulates a driver's license exam.
+ * Simulates a multiple choice exam.
  *
- * Holds the correct values for the 20 Qs.
- * Holds the student's answers for the 20 Qs.
+ * Holds the correct values for the Qs.
+ * Holds the student's answers for the Qs.
  *
  * Has methods to:
- *   - Determine if student passed must have 15 correct to pass.
+ *   - Determine if student passed must have 75% correct to pass.
  *   - return the total number of correctly answered Qs
  *   - return the total number of incorrect answers
  *   - return the numbers of the Qs that were missed
  */
-public class DriverExam {
-    private final int PASSING_AMOUNT = 15;
+public class Exam {
+    private final double PASS_PERCENT = 0.75;
     private char[] studentAns, correctAns = {
     //   1    2    3    4    5    6    7    8    9    0
         'B', 'A', 'B', 'D', 'C', 'C', 'B', 'A', 'B', 'A',
-        'C', 'C', 'A', 'A', 'A', 'B', 'A', 'A', 'A', 'A'
+        'C', 'C', 'A', 'A', 'A', 'B', 'A', 'A', 'A', 'A',
         'A', 'B', 'A', 'A' 
     };
 
-    public DriverExam(char[] ans) {
+    public Exam(char[] ans) {
         studentAns = ans;
     }
 
     public boolean passed() { 
-        return totalCorrect() >= PASSING_AMOUNT;
+        return (double)totalCorrect() / correctAns.length >= PASS_PERCENT;
     }
 
     public int totalIncorrect() {
