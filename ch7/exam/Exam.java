@@ -1,3 +1,7 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.*;
+
 /**
  * Simulates a multiple choice exam.
  *
@@ -11,25 +15,42 @@
  *   - return the numbers of the Qs that were missed
  *
  * Scenarios at instance creation:
- *   1. Know the test questions/correct answers, not student answers
- *       - Qs shown to user one at a time, allow the user to take the test
- *       - filename for csv with Qs and As passed to the constructor
- *   2. Know the correct answers and the student's answers
+ *   1. Know the correct answers and the student's answers
  *       - Useful for calculating statistics on an exam already taken
  *       - char[] passed to constructor for correct answers
  *       - char[] passed to constructor for student's answers
+ *   2. Know the test questions/correct answers, not student answers
+ *       - Qs shown to user one at a time, allow the user to take the test
+ *       - filename for csv with Qs and As passed to the constructor
  */
 public class Exam {
     private final double PASS_PERCENT = 0.75;
-    private char[] studentAns, correctAns = {
-    //   1    2    3    4    5    6    7    8    9    0
-        'B', 'A', 'B', 'D', 'C', 'C', 'B', 'A', 'B', 'A',
-        'C', 'C', 'A', 'A', 'A', 'B', 'A', 'A', 'A', 'A',
-        'A', 'B', 'A', 'A' 
-    };
+    private char[] studentAns, correctAns;
 
-    public Exam(char[] ans) {
-        studentAns = ans;
+    /**
+     * Constructor for scenario 1
+     */
+    public Exam(char[] correctAns, char[] studentAns) {
+        this.correctAns = correctAns;
+        this.studentAns = studentAns;
+    }
+
+    /**
+     * Constructor for scenario 2
+     */
+    public Exam(String filename) throws IOException {
+        displayTest(filename);
+    }
+
+    /**
+     * Displays a multiple choice exam to the user one Q at a time, 
+     * user enters his/her answers which are saved alongside correct answers.
+     */
+    public void displayTest(String filename) throws IOException {
+        ArrayList<Character> csvAnswers  = new ArrayList<>();
+        ArrayList<Character> userAnswers = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
+        Scanner file = new Scanner(new File(filename));
     }
 
     public boolean passed() { 
