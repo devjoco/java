@@ -1,14 +1,14 @@
 public class DemoExam {
     public static void main(String[] args) {
-        char[] testPassAns = {
+        char[] answers1 = {
             'B', 'A', 'B', 'D', 'C', 'C', 'B', 'A', 'B', 'A',
             'C', 'C', 'A', 'A', 'A', 'B', 'A', 'A', 'A', 'A',
             'A', 'B', 'A', 'A'},
-            testFailAns = {
+            answers2 = {
             'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 
             'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D',
             'C', 'D', 'A', 'B'},
-            testAllAAns = {
+            answers3 = {
             'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 
             'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A',
             'A', 'A', 'A', 'A'};
