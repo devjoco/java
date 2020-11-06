@@ -1,0 +1,23 @@
+This type of method cannot access any nonstatic member variables in its own class., instance, void, *static, nonstatic
+Two or more methods in a class may have the same name as long as this is different., their return values, their access specifier, *their signatures, their memory address
+The process of matching a method call with the correct method is known as, matching, *binding, linking, connecting
+When an object is passed as an argument to a method this is actually passed., a copy of the object, the name of the object, *a reference to the object, None of these. You cannot pass an object.
+If you write this method for a class Java will automatically call it any time you concatenate an object of the class with a string., *toString, plusString, stringConvert, concatString
+Making an instance of one class field in another class is called, nesting, class fielding, *aggregation, concatenation
+This is the name of a reference variable that is always available to an instance method and refers to the object that is calling the method., callingObject, *this, me, instance
+This enum method returns the position of an enum constant in the declaration., position, location, *ordinal, toString
+Assuming the following declaration exists: enum Seasons {"FALL"} what is the fully qualified name of the FALL constant?, FALL, enum.FALL, FALL.Seasons, *Seasons.FALL
+You cannot use the fully qualified name of an enum constant for this., a switch expression, *a case expression, an argument to a method, all of these
+A class that is defined inside of another class is called a(n), *inner class, folded class, hidden class, unknown class
+The JVM periodically performs this process which automatically removes unreferenced objects from memory., memory cleansing, memory deallocation, *garbage collection, object expungement
+If a class has this method it is called automatically just before an instance of the class is destroyed by the JVM, *finalize, destroy, remove, housekeeper
+CRC stands for, Class / Return value / Composition, *Class / Responsibilities / Collaboration, Class / Responsibilities / Composition, Compare / Return / Continue
+True or False: A static member method may refer to nonstatic member variables of the same class at any time., True, *False
+True or False: All static member variables are initialized to -1 by default., True, *False
+True or False: A class may not have more than one constructor., True, *False
+True or False: When an object is passed as an argument to a method the method can access the argument., *True, False
+True or False: A method cannot return a reference to an object., True, *False
+True or False: A private class that is defined inside another class is not visible to code outside the outer class., *True, False
+True or False: You can declare an enumerated data type inside a method., True, *False
+True or False: Enumerated data types are actually special types of classes., *True, False
+True or False: enum constants have a toString method., *True, False
