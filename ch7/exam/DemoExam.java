@@ -1,5 +1,7 @@
+import java.io.*;
+
 public class DemoExam {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         char[] answers1 = {
             'B', 'A', 'B', 'D', 'C', 'C', 'B', 'A', 'B', 'A',
             'C', 'C', 'A', 'A', 'A', 'B', 'A', 'A', 'A', 'A',
