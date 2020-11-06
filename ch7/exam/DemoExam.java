@@ -13,27 +13,22 @@ public class DemoExam {
             'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A',
             'A', 'A', 'A', 'A'};
 
-        Exam exam1 = new Exam(testPassAns);
-        System.out.printf("Exam1 %s with %d correct, %d incorrect.\n",
-                exam1.passed()? "passed" : "didn't pass",
-                exam1.totalCorrect(),
-                exam1.totalIncorrect());
-        exam1.printMissed();
+        Exam exam1 = new Exam(answers1, answers1);
+        Exam exam2 = new Exam(answers2, answers3);
+        Exam exam3 = new Exam(answers1, answers3);
+        Exam exam4 = new Exam("sampleTest.csv");
+        displayExamResults(exam1);
+        displayExamResults(exam2);
+        displayExamResults(exam3);
+        displayExamResults(exam4);
+    }
 
-        Exam exam2 = new Exam(testFailAns);
+    public static void displayExamResults(Exam exam) {
         System.out.println();
-        System.out.printf("Exam2 %s with %d correct, %d incorrect.\n",
-                exam2.passed()? "passed" : "didn't pass",
-                exam2.totalCorrect(),
-                exam2.totalIncorrect());
-        exam2.printMissed();
-
-        Exam exam3 = new Exam(testAllAAns);
-        System.out.println();
-        System.out.printf("Exam3 %s with %d correct, %d incorrect.\n",
-                exam3.passed()? "passed" : "didn't pass",
-                exam3.totalCorrect(),
-                exam3.totalIncorrect());
-        exam3.printMissed();
+        System.out.printf("Exam %s with %d correct, %d incorrect.\n",
+                exam.passed()? "passed" : "didn't pass",
+                exam.totalCorrect(),
+                exam.totalIncorrect());
+        exam.printMissed();
     }
 }
