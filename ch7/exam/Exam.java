@@ -76,6 +76,12 @@ public class Exam {
             System.out.println();
             System.out.print("\tYour answer: ");
             choice = scan.nextLine().toUpperCase().charAt(0);
+            while((int)choice < (int)'A' 
+                    || (int)'A' + currQ.length - 2 < (int)choice) {
+                System.out.print("\tInvalid choice\n\n");
+                System.out.print("\tYour answer: ");
+                choice = scan.nextLine().toUpperCase().charAt(0);
+            }
             userAnswers.add(choice);
             System.out.println();
 
