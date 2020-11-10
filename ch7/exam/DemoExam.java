@@ -1,12 +1,31 @@
 import java.io.*;
+import java.util.Scanner;
 
 public class DemoExam {
     public static void main(String[] args) throws IOException {
-        Exam ch6Exam = new Exam("ch6Exam.csv");
-        displayExamResults(ch6Exam);
+        String[] tests = {"ch6Exam.csv", "ch7Exam.csv"};
+        Scanner scan = new Scanner(System.in);
+        enumerateChoices(tests);
+        char choice = scan.nextLine().toUpperCase().charAt(0);
+        while( !(choice == '0') ) {
+            Exam exam = new Exam(tests[(int)choice - (int)'A']);
+            displayExamResults(exam);
+            enumerateChoices(tests);
+            choice = scan.nextLine().toUpperCase().charAt(0);
+        } 
+    }
 
-        Exam ch7Exam = new Exam("ch7Exam.csv");
-        displayExamResults(ch7Exam);
+    public static void enumerateChoices(String[] choices) {
+        String displayName;
+        char label;
+        System.out.println("  Which test do you want to take:");
+        for(int i=0; i<choices.length; i++) { 
+            label = (char)(i + (int)'A');
+            displayName = choices[i].split("\\.")[0]; 
+            System.out.printf("\t%c.) %s\n", label, displayName);
+        }
+        System.out.print("\t0.) Exit\n");
+        System.out.print("\n\tYour Choice: ");
     }
 
     public static void displayExamResults(Exam exam) {
@@ -16,5 +35,6 @@ public class DemoExam {
                 exam.totalCorrect(),
                 exam.totalIncorrect());
         exam.printMissed();
+        System.out.println();
     }
 }
