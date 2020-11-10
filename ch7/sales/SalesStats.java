@@ -37,12 +37,26 @@ public class SalesStats {
         final int NUM_DIVS = 6;
         final int NUM_QRTS = 4;
         double[][] sales = new double[NUM_DIVS][NUM_QRTS];
+        double[] DTotals = new double[NUM_DIVS];
+        double[] QTotals = new double[NUM_QRTS];
+        double[] QDeltas = new double[NUM_QRTS];
+        double[] DAvgs   = new double[NUM_QRTS];
+        int      bestDiv = 0;
 
-        for(int row=0; row<NUM_DIVS; row++) {
-            System.out.printf("Enter quartly sales for Division %d\n", row+1);
-            for(int col=0; col<NUM_QRTS; col++) {
-                System.out.printf("  Q%d: ", col+1); 
-                sales[row][col] = scan.nextDouble();
+        for(int div=0; div<NUM_DIVS; div++) {
+            System.out.printf("Enter quartly sales for Division %d\n", div+1);
+            for(int qtr=0; qtr<NUM_QRTS; qtr++) {
+                System.out.printf("  Q%d: ", qtr+1); 
+                sales[div][qtr] = scan.nextDouble();
+                DTotals[div] += sales[div][qtr];
+                QTotals[qtr] += sales[div][qtr];
+                QDeltas[qtr] = (qtr == 0)? 0: QTotals[qtr] - QTotals[qtr-1];
+                if(div == NUM_DIVS - 1) {
+                    DAvgs[qtr] = QTotals[qtr] / NUM_DIVS; 
+                }
+            }
+            if (DTotals[div] > DTotals[bestDiv]) {
+                bestDiv = div;
             }
             System.out.println(); 
         }
