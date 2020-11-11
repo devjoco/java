@@ -29,7 +29,7 @@ import java.text.DecimalFormat;
  * ├─────┼─────┼────────────┼─────┼─────┼─────┼─────┼─────┼─────┤
  * │Avg  │ 2.83│        1.67│ 1.67│ 2.17│ 8.33│-1.17│ 0.50│ 0.50│
  * ├─────┼─────┼────────────┼─────┼─────┼─────┼─────┼─────┼─────┤
- * │Most │   D2│D1,2,3,4,5,6│   D2│   D4│   D2│   D6│ D2,6│   D6│
+ * │High │   D2│D1,2,3,4,5,6│   D2│   D4│   D2│   D6│ D2,6│   D6│
  * └─────┴─────┴────────────┴─────┴─────┴─────┴─────┴─────┴─────┘
  */
 public class SalesStats { 
@@ -37,7 +37,7 @@ public class SalesStats {
         DecimalFormat sale = new DecimalFormat("¤#,##0.00");
         Scanner       scan = new Scanner(System.in);
         String[] rowLabels = {
-            "", "D1", "D2", "D3", "D4", "D5", "D6", "Total", "Avg", "Most"
+            "", "D1", "D2", "D3", "D4", "D5", "D6", "Total", "Avg", "High"
         };
         String[] colLabels = {
             "Q1", "Q2", "Q3", "Q4", "Total", "Q2∆", "Q3∆", "Q4∆"
@@ -248,20 +248,20 @@ public class SalesStats {
         System.out.println("│");
         rowsPrinted++;
 
-        // Print Most row
+        // Print High row
         printRowSep(colWidths, 'M');
-        // Print Most row label
+        // Print High row label
         System.out.printf("│%"+colWidths[0]+"s", rowLabels[rowsPrinted]);
-        // Print quarter mosts
+        // Print quarter highs
         for(int col=qtrOffset, qtr=0; qtr<QTRS; qtr++, col++)
             System.out.printf("│%"+colWidths[col]+"s", "D"+(++qtrHigh[qtr]));
-        // Print total most
+        // Print total high
         System.out.printf("│%"+colWidths[totalOffset]+"s",
                 "D"+(++highSales));
-        // Print delta mosts
+        // Print delta highs
         for(int col=deltaOffset, qtr=1; qtr<QTRS; qtr++, col++)
             System.out.printf("│%"+colWidths[col]+"s", "D"+(++deltaHigh[qtr]));
-        // End Mosts
+        // End Highs
         System.out.println("│");
         rowsPrinted++;
 
@@ -285,7 +285,7 @@ public class SalesStats {
  * ├─────┼─────┼────────────┼─────┼─────┼─────┼─────┼─────┼─────┤
  * │Avg  │ 2.83│        1.67│ 1.67│ 2.17│ 8.33│-1.17│ 0.50│ 0.50│
  * ├─────┼─────┼────────────┼─────┼─────┼─────┼─────┼─────┼─────┤
- * │Most │   D2│D1,2,3,4,5,6│   D2│   D4│   D2│   D6│ D2,6│   D6│
+ * │High │   D2│D1,2,3,4,5,6│   D2│   D4│   D2│   D6│ D2,6│   D6│
  * └─────┴─────┴────────────┴─────┴─────┴─────┴─────┴─────┴─────┘
  */
 
