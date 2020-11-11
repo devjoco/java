@@ -43,75 +43,127 @@ public class SalesStats {
             "Q1", "Q2", "Q3", "Q4", "Total", "Q2∆", "Q3∆", "Q4∆"
         };
 
-        final int NUM_DIVS = 6;
-        final int NUM_QTRS = 4;
+        final int DIVS = 6;
+        final int QTRS = 4;
 
-        double[][] sales       = new double[NUM_DIVS][NUM_QTRS];
-        double[][] deltas      = new double[NUM_DIVS][NUM_QTRS];
-        double[]   dTotals     = new double[NUM_DIVS];
-        double[]   qTotals     = new double[NUM_QTRS];
-        double[]   qAvgSales   = new double[NUM_QTRS];
-        double[]   qAvgDeltas  = new double[NUM_QTRS];
-        double[]   deltaTotals = new double[NUM_QTRS];
-        double     salesTotal  = 0;
-        double     salesAvg    = 0;
-        int        colWidths[] = new int[9];
-        int        qtrWidths[] = new int[NUM_QTRS];
-        int        delWidths[] = new int[NUM_QTRS];
-        int        dTotalWidth = 0;
-        int        bestDiv     = 0;
+        double[][] sales       = new double[DIVS][QTRS];
+        double[][] deltas      = new double[DIVS][QTRS];
+        double[]   divTotals   = new double[DIVS];
+        double[]   qtrTotals   = new double[QTRS];
+        double[]   qtrAvg      = new double[QTRS];
+        double[]   deltaAvg    = new double[QTRS];
+        double[]   deltaTotals = new double[QTRS];
+        double     totalSales  = 0;
+        double     avgSales    = 0;
+        
+        int[]      qtrHigh   = new int[QTRS];
+        int[]      qtrLow    = new int[QTRS];
+        int[]      deltaLow  = new int[QTRS];
+        int[]      deltaHigh = new int[QTRS];
+        int        highSales = 0;
+        int        lowSales  = 0;
+
+        int        colWidths[]   = new int[9];
+        int        qtrWidths[]   = new int[QTRS];
+        int        deltaWidths[] = new int[QTRS];
+        int        totalWidth    = 0;
+
+        int        qtrOffset   = 1;
+        int        totalOffset = 5;
+        int        deltaOffset = 6;
+
         int        rowsPrinted = 0;
-        int        qtrColOffset = 1;
-        int        totalColOffset = 5;
-        int        deltaColOffset = 6;
 
-        for(int div=0; div<NUM_DIVS; div++) {
+        // Gather sales info for each division
+        for(int div=0; div<DIVS; div++) {
             System.out.printf("Enter quartly sales for Division %d\n", div+1);
-            for(int qtr=0; qtr<NUM_QTRS; qtr++) {
+            // Gather sales info for each quarter of that division
+            for(int qtr=0; qtr<QTRS; qtr++) {
                 System.out.printf("  Q%d: ", qtr+1); 
+                // Save that quarter's sales
                 sales[div][qtr] = scan.nextDouble();
-                dTotals[div] += sales[div][qtr];
-                qTotals[qtr] += sales[div][qtr];
-                salesTotal   += sales[div][qtr];
+
+                // Update divTotals
+                divTotals[div] += sales[div][qtr];
+
+                // Update qrtTotals
+                qtrTotals[qtr] += sales[div][qtr];
+
+                // Update totalSales
+                totalSales += sales[div][qtr];
+
+                // Update deltas
                 deltas[div][qtr] = (qtr == 0)? 0:
                     sales[div][qtr] - sales[div][qtr-1];
-                deltaTotals[qtr] += deltas[div][qtr];
-                if (getLength(deltas[div][qtr]) > delWidths[qtr]) {
-                    // Update length of deltas columns
-                    delWidths[qtr] = getLength(deltas[div][qtr]);
-                }
-                if(qtr == NUM_QTRS - 1) {
-                    // Can update width of Total column for divisions
-                    if (getLength(dTotals[div]) > dTotalWidth)
-                        dTotalWidth = getLength(dTotals[div]);
-                }
-                if(div == NUM_DIVS - 1) {
-                    qAvgSales[qtr] = qTotals[qtr] / NUM_DIVS;
-                    qAvgDeltas[qtr] = deltaTotals[qtr] / NUM_DIVS;
+                
+                // Update deltaHigh
+                if(deltas[div][qtr] > deltas[deltaHigh[qtr]][qtr])
+                    deltaHigh[qtr] = div;
 
-                    // Can calc width of column for that quarter
-                    qtrWidths[qtr] = getLength(qTotals[qtr]);
+                // Update deltaLow
+                if(deltas[div][qtr] < deltas[deltaLow[qtr]][qtr])
+                    deltaLow[qtr] = div;
+
+                // Update deltaTotals
+                deltaTotals[qtr] += deltas[div][qtr];
+
+                // Update qtrHigh
+                if(sales[div][qtr] > sales[qtrHigh[qtr]][qtr])
+                    qtrHigh[qtr] = div;
+
+                // Update qtrLow
+                if(sales[div][qtr] < sales[qtrLow[qtr]][qtr])
+                    qtrLow[qtr] = div;
+
+                // Update width of deltas columns
+                if(getWidth(deltas[div][qtr]) > deltaWidths[qtr]) 
+                    deltaWidths[qtr] = getWidth(deltas[div][qtr]);
+
+                // Updates that happen after all quarters of a division proc.
+                if(qtr == QTRS - 1) {
+
+                    // Update width of Total column
+                    if(getWidth(divTotals[div]) > totalWidth) 
+                        totalWidth = getWidth(divTotals[div]);
+
+                    // Update highSales
+                    if(divTotals[div] > divTotals[highSales])
+                        highSales = div;
+
+                    // Update lowSales
+                    if(divTotals[div] < divTotals[lowSales])
+                        lowSales = div;
+                }
+
+                // Updates that happen after all divisions processed
+                if(div == DIVS - 1) {
+
+                    // Update qtrAvg
+                    qtrAvg[qtr] = qtrTotals[qtr] / DIVS;
+                    
+                    // Update deltaAvg
+                    deltaAvg[qtr] = deltaTotals[qtr] / DIVS;
+
+                    // Update qtrWidths
+                    qtrWidths[qtr] = getWidth(qtrTotals[qtr]);
 
                     // Calc width of totals column
-                    if (getLength(salesTotal) > dTotalWidth)
-                        dTotalWidth = getLength(salesTotal);
+                    if (getWidth(totalSales) > totalWidth)
+                        totalWidth = getWidth(totalSales);
 
-                    salesAvg = salesTotal / NUM_DIVS;
+                    avgSales = totalSales / DIVS;
                 }
-            }
-            if (dTotals[div] > dTotals[bestDiv]) {
-                bestDiv = div;
             }
             System.out.println(); 
         }
 
         // Populate colWidths[] to easily print rowSeps
         colWidths[0] = getLongest(rowLabels);
-        for(int i=0, j=1; i<NUM_QTRS; i++, j++)
+        for(int i=0, j=1; i<QTRS; i++, j++)
             colWidths[j] = qtrWidths[i];
-        colWidths[5] = dTotalWidth;
-        for(int i=1, j=6; i<NUM_QTRS; i++, j++)
-            colWidths[j] = delWidths[i];
+        colWidths[5] = totalWidth;
+        for(int i=1, j=6; i<QTRS; i++, j++)
+            colWidths[j] = deltaWidths[i];
 
 
         // Print Header
@@ -128,22 +180,22 @@ public class SalesStats {
 
         // Print Division rows
         printRowSep(colWidths, 'M');
-        for(int div=0; div<NUM_DIVS; div++) {
+        for(int div=0; div<DIVS; div++) {
             // Print row label
             System.out.printf("│%"+colWidths[0]+"s", rowLabels[rowsPrinted]);
 
             // Print quarters for that division
-            for(int qtr=0; qtr<NUM_QTRS; qtr++) {
-                System.out.printf("│%"+colWidths[qtrColOffset + qtr]+"s", 
+            for(int qtr=0; qtr<QTRS; qtr++) {
+                System.out.printf("│%"+colWidths[qtrOffset + qtr]+"s", 
                         sale.format(sales[div][qtr]));
             }
 
             // Print total for that division
-            System.out.printf("│%"+colWidths[totalColOffset]+"s", 
-                    sale.format(dTotals[div]));
+            System.out.printf("│%"+colWidths[totalOffset]+"s", 
+                    sale.format(divTotals[div]));
 
             // print deltas for that division
-            for(int col=deltaColOffset, qtr=1; qtr<NUM_QTRS; col++, qtr++) {
+            for(int col=deltaOffset, qtr=1; qtr<QTRS; col++, qtr++) {
                 System.out.printf("│%"+colWidths[col]+"s", 
                         sale.format(deltas[div][qtr]));
             }
@@ -158,14 +210,14 @@ public class SalesStats {
         // Print total row label
         System.out.printf("│%"+colWidths[0]+"s", rowLabels[rowsPrinted]);
         // Print quarter totals
-        for(int col=qtrColOffset, qtr=0; qtr<NUM_QTRS; qtr++, col++)
+        for(int col=qtrOffset, qtr=0; qtr<QTRS; qtr++, col++)
             System.out.printf("│%"+colWidths[col]+"s", 
-                    sale.format(qTotals[qtr]));
+                    sale.format(qtrTotals[qtr]));
         // Print total total
-        System.out.printf("│%"+colWidths[totalColOffset]+"s",
-                sale.format(salesTotal));
+        System.out.printf("│%"+colWidths[totalOffset]+"s",
+                sale.format(totalSales));
         // Print delta totals
-        for(int col=deltaColOffset, qtr=1; qtr<NUM_QTRS; qtr++, col++)
+        for(int col=deltaOffset, qtr=1; qtr<QTRS; qtr++, col++)
             System.out.printf("│%"+colWidths[col]+"s", 
                     sale.format(deltaTotals[qtr]));
         // End Totals
@@ -177,16 +229,16 @@ public class SalesStats {
         // Print Avg row label
         System.out.printf("│%"+colWidths[0]+"s", rowLabels[rowsPrinted]);
         // Print quarter avgs
-        for(int col=qtrColOffset, qtr=0; qtr<NUM_QTRS; qtr++, col++)
+        for(int col=qtrOffset, qtr=0; qtr<QTRS; qtr++, col++)
             System.out.printf("│%"+colWidths[col]+"s", 
-                    sale.format(qAvgSales[qtr]));
+                    sale.format(qtrAvg[qtr]));
         // Print avgs total
-        System.out.printf("│%"+colWidths[totalColOffset]+"s",
-                sale.format(salesAvg));
+        System.out.printf("│%"+colWidths[totalOffset]+"s",
+                sale.format(avgSales));
         // Print delta avgs
-        for(int col=deltaColOffset, qtr=1; qtr<NUM_QTRS; qtr++, col++)
+        for(int col=deltaOffset, qtr=1; qtr<QTRS; qtr++, col++)
             System.out.printf("│%"+colWidths[col]+"s", 
-                    sale.format(qAvgDeltas[qtr]));
+                    sale.format(deltaAvg[qtr]));
         // End Avgs
         System.out.println("│");
         rowsPrinted++;
@@ -196,8 +248,14 @@ public class SalesStats {
         // Print Most row label
         System.out.printf("│%"+colWidths[0]+"s", rowLabels[rowsPrinted]);
         // Print quarter mosts
+        for(int col=qtrOffset, qtr=0; qtr<QTRS; qtr++, col++)
+            System.out.printf("│%"+colWidths[col]+"s", "D"+(++qtrHigh[qtr]));
         // Print total most
+        System.out.printf("│%"+colWidths[totalOffset]+"s",
+                "D"+(++highSales));
         // Print delta mosts
+        for(int col=deltaOffset, qtr=1; qtr<QTRS; qtr++, col++)
+            System.out.printf("│%"+colWidths[col]+"s", "D"+(++deltaHigh[qtr]));
         // End Mosts
         System.out.println("│");
         rowsPrinted++;
@@ -206,8 +264,8 @@ public class SalesStats {
         printRowSep(colWidths, 'B');
     } 
 /** 
- *  getLongest(rowLabels)             dTotalWidth 
- *    ↓   ←────────qtrWidths[i]────────→  ↓    ←──delWidths[i]─→
+ *  getLongest(rowLabels)             totalWidth 
+ *    ↓   ←────────qtrWidths[i]────────→  ↓    ←──deltaWidths[i]─→
  * ┌─────┬─────┬────────────┬─────┬─────┬─────┬─────┬─────┬─────┐
  * │     │   Q1│          Q2│   Q3│   Q4│Total│  Q2∆│  Q3∆│  Q4∆│
  * ├─────┼─────┼────────────┼─────┼─────┼─────┼─────┼─────┼─────┤
@@ -256,7 +314,7 @@ public class SalesStats {
         System.out.println("\b"+rBreak);
     }
 
-    public static int getLength(double amt) {
+    public static int getWidth(double amt) {
         DecimalFormat sale = new DecimalFormat("¤#,##0.00"); 
         return sale.format(amt).length();
     }
