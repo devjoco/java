@@ -148,9 +148,14 @@ public class SalesStats {
                     qtrWidths[qtr] = getWidth(qtrTotals[qtr]);
 
                     // Calc width of totals column
-                    if (getWidth(totalSales) > totalWidth)
+                    if(getWidth(totalSales) > totalWidth)
                         totalWidth = getWidth(totalSales);
 
+                    // Update deltaWidths
+                    if(getWidth(deltaTotals[qtr]) > deltaWidths[qtr]) 
+                        deltaWidths[qtr] = getWidth(deltaTotals[qtr]);
+
+                    // Calc avgSales
                     avgSales = totalSales / DIVS;
                 }
             }
