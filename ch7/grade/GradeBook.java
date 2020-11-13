@@ -30,4 +30,10 @@
  * when determining the test score averages and letter grades.
  */
 public class GradeBook {
+    final private int NUM_STUDENTS = 5;
+    final private int NUM_TESTS = 4;
+
+    private String[]   names   = new String[NUM_STUDENTS];    
+    private char[]     letters = new char[NUM_STUDENTS];
+    private double[][] grades  = new double[NUM_STUDENTS][NUM_TESTS];
 }
