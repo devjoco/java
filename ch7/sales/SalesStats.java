@@ -215,21 +215,40 @@ public class SalesStats {
                     // Update qtrWidths
                     qtrWidths[qtr] = Math.max(
                             getWidth(qtrTotals[qtr]),
-                            getDivString(qtrHigh[qtr]).length()
+                            Math.max(
+                                getDivString(qtrLow[qtr]).length(),
+                                getDivString(qtrHigh[qtr]).length()
+                                )
                             );
 
                     // Calc width of totals column
                     if(getWidth(totalSales) > totalWidth)
                         totalWidth = getWidth(totalSales);
 
+                    totalWidth = Math.max(
+                            Math.max(
+                                totalWidth,
+                                getWidth(totalSales)
+                                ),
+                            Math.max(
+                                getDivString(highSales).length(),
+                                getDivString(lowSales).length()
+                                )
+                            );
+
                     // Update deltaWidths
                     if(getWidth(deltaTotals[qtr]) > deltaWidths[qtr]) 
                         deltaWidths[qtr] = getWidth(deltaTotals[qtr]);
 
                     deltaWidths[qtr] = Math.max(
-                            Math.max(deltaWidths[qtr],
-                                getWidth(deltaTotals[qtr])),
-                            getDivString(deltaHigh[qtr]).length()
+                            Math.max(
+                                deltaWidths[qtr],
+                                getWidth(deltaTotals[qtr])
+                                ),
+                            Math.max(
+                                getDivString(deltaLow[qtr]).length(),
+                                getDivString(deltaHigh[qtr]).length()
+                                )
                             );
 
                     // Calc avgSales
@@ -418,6 +437,6 @@ public class SalesStats {
         String str = "D";
         for(int i=0; i<divs.length; i++) 
             str += (i == divs.length - 1)? divs[i] + 1: (divs[i] + 1)+",";
-        return str;
+        return str.equals("D1,2,3,4,5,6")? "All": str;
     }
 }
