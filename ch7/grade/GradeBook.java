@@ -37,6 +37,14 @@ public class GradeBook {
     private char[]     letters = new char[NUM_STUDENTS];
     private double[][] grades  = new double[NUM_STUDENTS][NUM_TESTS];
 
+    public GradeBook(String[] names, double[][] grades) {
+        for(int i=0; i<NUM_STUDENTS; i++) {
+            this.names[i] = names[i];
+            for(int j=0; j<NUM_TESTS; j++)
+                this.grades[i][j] = grades[i][j];
+        }
+    }
+
     public String getName(int pos) {
         return names[pos]; 
     }
@@ -50,5 +58,14 @@ public class GradeBook {
         for(double grade: grades[pos])
             total += grade;
         return total / NUM_TESTS;
+    }
+
+    public void showGrades() {
+        for(int i=0; i<NUM_STUDENTS; i++)
+            System.out.printf("[%s │ Average:%.2f | Grade:%c]", 
+                    names[i], 
+                    getAvg(i),
+                    getLetter(i)
+                    );
     }
 }
