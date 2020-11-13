@@ -36,4 +36,19 @@ public class GradeBook {
     private String[]   names   = new String[NUM_STUDENTS];    
     private char[]     letters = new char[NUM_STUDENTS];
     private double[][] grades  = new double[NUM_STUDENTS][NUM_TESTS];
+
+    public String getName(int pos) {
+        return names[pos]; 
+    }
+
+    public char getLetter(int pos) {
+        return letters[pos];
+    }
+
+    public double getAvg(int pos) {
+        double total = 0;
+        for(double grade: grades[pos])
+            total += grade;
+        return total / NUM_TESTS;
+    }
 }
