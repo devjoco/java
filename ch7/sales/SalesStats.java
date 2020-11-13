@@ -38,7 +38,8 @@ public class SalesStats {
         DecimalFormat sale = new DecimalFormat("¤#,##0.00");
         Scanner       scan = new Scanner(System.in);
         String[] rowLabels = {
-            "", "D1", "D2", "D3", "D4", "D5", "D6", "Total", "Avg", "High"
+            "", "D1", "D2", "D3", "D4", "D5", "D6", 
+            "Total", "Avg", "High", "Low"
         };
         String[] colLabels = {
             "Q1", "Q2", "Q3", "Q4", "Total", "Q2∆", "Q3∆", "Q4∆"
@@ -360,6 +361,25 @@ public class SalesStats {
             System.out.printf("│%"+colWidths[col]+"s", 
                     getDivString(deltaHigh[qtr]));
         // End Highs
+        System.out.println("│");
+        rowsPrinted++;
+
+        // Print Low row
+        printRowSep(colWidths, 'M');
+        // Print Low row label
+        System.out.printf("│%"+colWidths[0]+"s", rowLabels[rowsPrinted]);
+        // Print quarter lows
+        for(int col=qtrOffset, qtr=0; qtr<QTRS; qtr++, col++)
+            System.out.printf("│%"+colWidths[col]+"s", 
+                    getDivString(qtrLow[qtr]));
+        // Print total low
+        System.out.printf("│%"+colWidths[totalOffset]+"s",
+                getDivString(lowSales));
+        // Print delta lows
+        for(int col=deltaOffset, qtr=1; qtr<QTRS; qtr++, col++)
+            System.out.printf("│%"+colWidths[col]+"s", 
+                    getDivString(deltaLow[qtr]));
+        // End Lows
         System.out.println("│");
         rowsPrinted++;
 
