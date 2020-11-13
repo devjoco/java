@@ -11,16 +11,20 @@
  *      60-69           D
  *      0-59            F
  *
- * Write a class that uses a String array (or an ArrayList object) to hold the
- * five students' names, an array of five characters to hold the five students'
- * letter grades, and five arrays of four doubles each to hold each student's
- * set of test scores. The class shoul dhave methods that return a specific 
- * student's name, average test score, and a letter grade based on the average.
+ * Write a class that:
+ *   - Uses 1 String array to hold 5 students' names
+ *   - Uses 1 char   array to hold 5 students' grades
+ *   - Uses 5 double arrays to hold each student's set of test scores.
+ *   - Has a method to return a specific student's name
+ *   - Has "   "    "    "    "   "        "       average test score
+ *   - Has "   "    "    "    "   "        "       letter grade based on avg
  *
- * Demonstrate the class in a program that allows the user to enter each
- * student's name and his or her four test scores. It should then display each
- * student's average test score and letter grade.
- * Input validation: Don't accept test scores less than 0 or greater than 100.
+ * Demonstrate the class in a program that:
+ *   - Allows the user to enter each student's name and 4 test scores
+ *   - Displays each student's average test score and letter grade.
+ *
+ * Input validation: 
+ *   -Don't accept test scores less than 0 or greater than 100.
  *
  * Modify the grade book application so it drops each student's lowest score
  * when determining the test score averages and letter grades.
