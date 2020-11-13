@@ -1,3 +1,4 @@
+import java.lang.Math;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
@@ -189,7 +190,10 @@ public class SalesStats {
                     deltaAvg[qtr] = deltaTotals[qtr] / DIVS;
 
                     // Update qtrWidths
-                    qtrWidths[qtr] = getWidth(qtrTotals[qtr]);
+                    qtrWidths[qtr] = Math.max(
+                            getWidth(qtrTotals[qtr]),
+                            getDivString(qtrHigh[qtr]).length()
+                            );
 
                     // Calc width of totals column
                     if(getWidth(totalSales) > totalWidth)
@@ -198,6 +202,12 @@ public class SalesStats {
                     // Update deltaWidths
                     if(getWidth(deltaTotals[qtr]) > deltaWidths[qtr]) 
                         deltaWidths[qtr] = getWidth(deltaTotals[qtr]);
+
+                    deltaWidths[qtr] = Math.max(
+                            Math.max(deltaWidths[qtr],
+                                getWidth(deltaTotals[qtr])),
+                            getDivString(deltaHigh[qtr]).length()
+                            );
 
                     // Calc avgSales
                     avgSales = totalSales / DIVS;
@@ -383,9 +393,8 @@ public class SalesStats {
 
     public static String getDivString(int[] divs) {
         String str = "D";
-        for(int div : divs) 
-            str += ++div+",";
-        str += '\b';
+        for(int i=0; i<divs.length; i++) 
+            str += (i == divs.length - 1)? divs[i] + 1: (divs[i] + 1)+",";
         return str;
     }
 }
