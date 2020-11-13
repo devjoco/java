@@ -97,12 +97,34 @@ public class SalesStats {
                     sales[div][qtr] - sales[div][qtr-1];
                 
                 // Update deltaHigh
-                if(deltas[div][qtr] > deltas[deltaHigh[qtr]][qtr])
-                    deltaHigh[qtr] = div;
+                if(deltaHigh[qtr].length == 0  ||
+                        deltas[div][qtr] > deltas[deltaHigh[qtr][0]][qtr]) {
+                    // Found a new, lone deltaHigh; set deltaHigh[qtr] to div
+                    deltaHigh[qtr] = new int[1];
+                    deltaHigh[qtr][0] = div;
+                } else if(deltas[div][qtr] == deltas[deltaHigh[qtr][0]][qtr]) {
+                    // Found a new, add't deltaHigh; add div to deltaHigh[qtr]
+                    int[] tempArr = new int[deltaHigh[qtr].length + 1];
+                    for(int i=0; i<deltaHigh[qtr].length; i++) 
+                        tempArr[i] = deltaHigh[qtr][i];
+                    tempArr[tempArr.length - 1] = div;
+                    deltaHigh[qtr] = tempArr;
+                }
 
                 // Update deltaLow
-                if(deltas[div][qtr] < deltas[deltaLow[qtr]][qtr])
-                    deltaLow[qtr] = div;
+                if(deltaLow[qtr].length == 0  ||
+                        deltas[div][qtr] < deltas[deltaLow[qtr][0]][qtr]) {
+                    // Found a new, lone deltaLow; set deltaLow[qtr] to div
+                    deltaLow[qtr] = new int[1];
+                    deltaLow[qtr][0] = div;
+                } else if(deltas[div][qtr] == deltas[deltaLow[qtr][0]][qtr]) {
+                    // Found a new, add't deltaLow; add div to deltaLow[qtr]
+                    int[] tempArr = new int[deltaLow[qtr].length + 1];
+                    for(int i=0; i<deltaLow[qtr].length; i++) 
+                        tempArr[i] = deltaLow[qtr][i];
+                    tempArr[tempArr.length - 1] = div;
+                    deltaLow[qtr] = tempArr;
+                }
 
                 // Update deltaTotals
                 deltaTotals[qtr] += deltas[div][qtr];
