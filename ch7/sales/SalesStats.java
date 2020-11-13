@@ -61,8 +61,8 @@ public class SalesStats {
         int[][]    qtrLow    = new int[QTRS][0];
         int[][]    deltaLow  = new int[QTRS][0];
         int[][]    deltaHigh = new int[QTRS][0];
-        int        highSales = 0;
-        int        lowSales  = 0;
+        int[]      highSales = new int[0];
+        int[]      lowSales  = new int[0];
 
         int        colWidths[]   = new int[9];
         int        qtrWidths[]   = new int[QTRS];
@@ -172,12 +172,35 @@ public class SalesStats {
                         totalWidth = getWidth(divTotals[div]);
 
                     // Update highSales
-                    if(divTotals[div] > divTotals[highSales])
-                        highSales = div;
+                    if(highSales.length == 0 
+                            || divTotals[div] > divTotals[highSales[0]]) {
+                        // Found a new, lone qtrLow; set highSales to that div
+                        highSales = new int[1];
+                        highSales[0] = div;
+                    } else if(divTotals[div] == divTotals[highSales[0]]) {
+                        // Found a new, add't highSales; add div to highSales
+                        int[] tempArr = new int[highSales.length + 1];
+                        for(int i=0; i<highSales.length; i++) 
+                            tempArr[i] = highSales[i];
+                        tempArr[tempArr.length - 1] = div;
+                        highSales = tempArr;
+                    }
+                        
 
                     // Update lowSales
-                    if(divTotals[div] < divTotals[lowSales])
-                        lowSales = div;
+                    if(lowSales.length == 0 
+                            || divTotals[div] < divTotals[lowSales[0]]) {
+                        // Found a new, lone qtrLow; set lowSales to that div
+                        lowSales = new int[1];
+                        lowSales[0] = div;
+                    } else if(divTotals[div] == divTotals[lowSales[0]]) {
+                        // Found a new, add't lowSales; add div to lowSales
+                        int[] tempArr = new int[lowSales.length + 1];
+                        for(int i=0; i<lowSales.length; i++) 
+                            tempArr[i] = lowSales[i];
+                        tempArr[tempArr.length - 1] = div;
+                        lowSales = tempArr;
+                    }
                 }
 
                 // Updates that happen after all divisions processed
@@ -312,7 +335,7 @@ public class SalesStats {
                     getDivString(qtrHigh[qtr]));
         // Print total high
         System.out.printf("│%"+colWidths[totalOffset]+"s",
-                "D"+(++highSales));
+                getDivString(highSales));
         // Print delta highs
         for(int col=deltaOffset, qtr=1; qtr<QTRS; qtr++, col++)
             System.out.printf("│%"+colWidths[col]+"s", 
