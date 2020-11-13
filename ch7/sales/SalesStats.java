@@ -305,7 +305,8 @@ public class SalesStats {
                 "D"+(++highSales));
         // Print delta highs
         for(int col=deltaOffset, qtr=1; qtr<QTRS; qtr++, col++)
-            System.out.printf("│%"+colWidths[col]+"s", "D"+(++deltaHigh[qtr]));
+            System.out.printf("│%"+colWidths[col]+"s", 
+                    getDivString(deltaHigh[qtr]));
         // End Highs
         System.out.println("│");
         rowsPrinted++;
