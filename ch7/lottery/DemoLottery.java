@@ -18,6 +18,12 @@ public class DemoLottery {
             ordStr = i==0? "st": i==1? "nd": i==2? "rd" : "th";
             System.out.printf("%d%s Number: ", i+1, ordStr);
             picks[i] = scan.nextInt();
+            while(picks[i] < 0 || picks[i] > Lottery.MAX_VALUE) {
+                System.out.printf("Invalid pick! Choose from 0-%d\n",
+                        Lottery.MAX_VALUE);
+            System.out.printf("%d%s Number: ", i+1, ordStr);
+            picks[i] = scan.nextInt();
+            }
         }
         System.out.println();
 

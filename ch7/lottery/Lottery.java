@@ -11,8 +11,8 @@ import java.util.Random;
  *              User's array:  4 2 9 7 3
  */
 public class Lottery {
-    public static final NUM_PICKS = 5;
-    public static final MAX_VALUE = 9;
+    public static final int NUM_PICKS = 5;
+    public static final int MAX_VALUE = 9;
 
     private int[] lotteryNumbers = new int[NUM_PICKS];
     private Random rng = new Random();
