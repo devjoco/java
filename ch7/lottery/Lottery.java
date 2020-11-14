@@ -11,25 +11,28 @@ import java.util.Random;
  *              User's array:  4 2 9 7 3
  */
 public class Lottery {
-    private int[] lotteryNumbers = new int[5];
+    public static final NUM_PICKS = 5;
+    public static final MAX_VALUE = 9;
+
+    private int[] lotteryNumbers = new int[NUM_PICKS];
     private Random rng = new Random();
     
     public Lottery() { 
-        for(int i=0; i<5; i++)
-            lotteryNumbers[i] = rng.nextInt(10);
+        for(int i=0; i<NUM_PICKS; i++)
+            lotteryNumbers[i] = rng.nextInt(MAX_VALUE + 1);
     }
 
     public int getMatches(int[] picks) {
         int count = 0;
-        for(int i=0; i<5; i++)
+        for(int i=0; i<NUM_PICKS; i++)
             if(lotteryNumbers[i] == picks[i])
                 count++;
         return count;
     }
 
     public int[] getNumbers() {
-        int[] copy = new int[5];
-        for(int i=0; i<5; i++)
+        int[] copy = new int[NUM_PICKS];
+        for(int i=0; i<NUM_PICKS; i++)
             copy[i] = lotteryNumbers[i];
         return copy;
     }
