@@ -46,4 +46,33 @@ public class ArrayOps {
     public static double getAverage(double[] arr) {
         return (double) getTotal(arr) / arr.length;
     }
+
+    public static int getHighest(int[] arr) {
+        int high = arr[0];
+        for(int a: arr)
+            if(a > high)
+                high = a;
+        return high;
+    }
+    public static long getHighest(long[] arr) {
+        long high = arr[0];
+        for(long a: arr)
+            if(a > high)
+                high = a;
+        return high;
+    }
+    public static float getHighest(float[] arr) {
+        float high = arr[0];
+        for(float a: arr)
+            if(a > high)
+                high = a;
+        return high;
+    }
+    public static double getHighest(double[] arr) {
+        double high = arr[0];
+        for(double a: arr)
+            if(a > high)
+                high = a;
+        return high;
+    }
 }
