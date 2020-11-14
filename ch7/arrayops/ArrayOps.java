@@ -75,4 +75,34 @@ public class ArrayOps {
                 high = a;
         return high;
     }
+
+    public static int getLowest(int[] arr) {
+        int low = arr[0];
+        for(int a: arr)
+            if(a < low)
+                low = a;
+        return low;
+    }
+    public static long getLowest(long[] arr) {
+        long low = arr[0];
+        for(long a: arr)
+            if(a < low)
+                low = a;
+        return low;
+    }
+    public static float getLowest(float[] arr) {
+        float low = arr[0];
+        for(float a: arr)
+            if(a < low)
+                low = a;
+        return low;
+    }
+    public static double getLowest(double[] arr) {
+        double low = arr[0];
+        for(double a: arr)
+            if(a < low)
+                low = a;
+        return low;
+    }
+
 }
