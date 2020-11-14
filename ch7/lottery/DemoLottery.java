@@ -2,19 +2,19 @@ import java.util.Scanner;
 
 /**
  * Lottery Application Demo.
- *  - Ask user to enter 5 numbers
+ *  - Ask user to enter Lottery.NUM_PICKS numbers
  *  - Display the number of digits that match
  *  - If all match, display message proclaiming grand prize winner
  */
 public class DemoLottery {
     public static void main(String[] args) {
         Scanner scan  = new Scanner(System.in);
-        int[]   picks = new int[5];
+        int[]   picks = new int[Lottery.NUM_PICKS];
         int     matches;
         String  ordStr;
 
         System.out.println("Pick your lotto numbers!");
-        for(int i=0; i<5; i++) {
+        for(int i=0; i<Lottery.NUM_PICKS; i++) {
             ordStr = i==0? "st": i==1? "nd": i==2? "rd" : "th";
             System.out.printf("%d%s Number: ", i+1, ordStr);
             picks[i] = scan.nextInt();
@@ -25,7 +25,7 @@ public class DemoLottery {
         matches = lotto.getMatches(picks);
 
         System.out.printf("You got %d correct.\n", matches);
-        if(matches == 5)
+        if(matches == Lottery.NUM_PICKS)
             System.out.println("You're a grand prize winner!");
 
         System.out.printf("%15s: %s\n%15s: %s\n",
