@@ -33,4 +33,17 @@ public class ArrayOps {
             sum += a;
         return sum;
     }
+
+    public static double getAverage(int[] arr) {
+        return (double) getTotal(arr) / arr.length;
+    }
+    public static double getAverage(long[] arr) {
+        return (double) getTotal(arr) / arr.length;
+    }
+    public static double getAverage(float[] arr) {
+        return (double) getTotal(arr) / arr.length;
+    }
+    public static double getAverage(double[] arr) {
+        return (double) getTotal(arr) / arr.length;
+    }
 }
