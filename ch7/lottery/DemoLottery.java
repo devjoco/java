@@ -24,8 +24,24 @@ public class DemoLottery {
         Lottery lotto = new Lottery();
         matches = lotto.getMatches(picks);
 
-        System.out.printf("You got %d correct.", matches);
+        System.out.printf("You got %d correct.\n", matches);
         if(matches == 5)
             System.out.println("You're a grand prize winner!");
+
+        System.out.printf("%15s: %s\n%15s: %s\n",
+                "Winning Numbers", arrToStr(lotto.getNumbers()),
+                "Your Numbers", arrToStr(picks)
+                );
+    }
+
+    public static String arrToStr(int[] arr) {
+        String str = "[";
+        for(int i=0; i<arr.length; i++) {
+            str += arr[i];
+            if(i != arr.length - 1)
+                str += " ,";
+        }
+        str += "]";
+        return str;
     }
 }
