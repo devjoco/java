@@ -10,16 +10,28 @@ import java.util.Scanner;
  * then display the following data:
  *  - The lowest number in the array
  *  - The highest number in the array
- *  - The total of the number sin the array
+ *  - The total of the numbers in the array
  *  - The average of the numbers in the array
  */
 public class NumberAnalysis {
-    private int[] numbers;
-    private Scanner scan;
-
+    private double   lowest, highest, total, average, num;
+    private int      count;
+    private Scanner  scan;
 
     public NumberAnalysis(String filename) throws IOException {
         scan = new Scanner(new File(filename));
+        while(scan.hasNext()) {
+            num = scan.nextDouble();
+            total += num;
+            highest = num > highest ? num : highest;
+            lowest  = num < lowest  ? num : lowest;
+            count++;
+        }
+        average = total / count;
     }
 
+    public double getLowest()  { return lowest;  }
+    public double getHighest() { return highest; }
+    public double getTotal()   { return total;   }
+    public double getAverage() { return average; }
 }
