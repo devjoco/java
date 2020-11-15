@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.Scanner;
+
 /**
  * Number Analysis Class ─ Programming Challenge #11, Page 507.
  *
@@ -11,4 +14,12 @@
  *  - The average of the numbers in the array
  */
 public class NumberAnalysis {
+    private int[] numbers;
+    private Scanner scan;
+
+
+    public NumberAnalysis(String filename) throws IOException {
+        scan = new Scanner(new File(filename));
+    }
+
 }
