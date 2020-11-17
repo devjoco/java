@@ -7,6 +7,10 @@ public class StringOps {
      * e.g. printReverse("gravity") → "ytivarg"
      */
     public static void printReverse(String str) {
+        StringBuilder strb = new StringBuilder(str.length());
+        for(int i=str.length()-1; i>=0; i--)
+            strb.append(str.charAt(i));
+        System.out.println(strb);
     }
 
     /**
