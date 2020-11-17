@@ -26,5 +26,9 @@ public class DemoStringOps {
         // Print whether the user's input would be a good password
         System.out.println("\nYour string if used as a password:");
         StringOps.validatePassword(str, true);
+
+        // Print user's string as a telephone number
+        System.out.println("\nYour string if used as a telephone number:");
+        System.out.println(StringOps.toPhoneNumber(str));
     }
 }

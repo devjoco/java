@@ -6,6 +6,33 @@ import java.util.StringTokenizer;
 public class StringOps {
 
     /**
+     * Convert alphanumeric telephone to numeric telephone number.
+     * e.g. 1-800-GET-FOOD →  1-800-438-3663
+     */
+    public static String toPhoneNumber(String str) {
+        StringBuilder sb = new StringBuilder(str.length());
+        for(char ch: str.toCharArray()) {
+            if(Character.isLetter(ch)) {
+                char newChar, oldChar = Character.toUpperCase(ch);
+
+                if     ("ABC".indexOf(oldChar)  != -1) newChar = '2';
+                else if("DEF".indexOf(oldChar)  != -1) newChar = '3';
+                else if("GHI".indexOf(oldChar)  != -1) newChar = '4';
+                else if("JKL".indexOf(oldChar)  != -1) newChar = '5';
+                else if("MNO".indexOf(oldChar)  != -1) newChar = '6';
+                else if("PQRS".indexOf(oldChar) != -1) newChar = '7';
+                else if("TUV".indexOf(oldChar)  != -1) newChar = '8';
+                else if("WXYZ".indexOf(oldChar) != -1) newChar = '9';
+                else                                   newChar = '?';
+                sb.append(newChar);
+            } else {
+                sb.append(ch);
+            }
+        } 
+        return sb.toString();
+    }
+
+    /**
      * Determine whether the given string meets the password reqs.
      *  - Should be at least 6 charaters long
      *  - Should contain at least one upper, lower, digit
