@@ -26,6 +26,20 @@ public class StringOps {
     }
 
     /**
+     * Return whether ch is a vowel or not.
+     */
+    public static boolean isVowel(char ch) {
+        return "aeiouAEIOU".indexOf(ch) != -1;
+    }
+
+    /**
+     * Return whether ch is a consonant or not.
+     */
+    public static boolean isConsonant(char ch) {
+        return Character.isLetter(ch) && "aeiouAEIOU".indexOf(ch) == -1;
+    }
+
+    /**
      * Convert alphanumeric telephone to numeric telephone number.
      * e.g. 1-800-GET-FOOD →  1-800-438-3663
      */
@@ -68,11 +82,11 @@ public class StringOps {
         boolean charsFound = false;
         int     charCount  = 0;
         
-        for(char c: str.toCharArray()) {
+        for(char ch: str.toCharArray()) {
             charCount++;
-            if(Character.isUpperCase(c)) upperFound = true;
-            if(Character.isLowerCase(c)) lowerFound = true;
-            if(Character.isDigit(c))     digitFound = true;
+            if(Character.isUpperCase(ch)) upperFound = true;
+            if(Character.isLowerCase(ch)) lowerFound = true;
+            if(Character.isDigit(ch))     digitFound = true;
             if(charCount >= CHAR_NEEDED) charsFound = true;
         } 
 
@@ -100,8 +114,8 @@ public class StringOps {
      */
     public static int countVowels(String str) {
         int count = 0;
-        for(char c: str.toCharArray())
-            if("aeiouAEIOU".indexOf(c) != -1) 
+        for(char ch: str.toCharArray())
+            if(isVowel(ch)) 
                 count++;
         return count;
     } 
@@ -111,8 +125,8 @@ public class StringOps {
      */
     public static int countConsonants(String str) {
         int count = 0;
-        for(char c: str.toCharArray())
-            if(Character.isLetter(c) && "aeiouAEIOU".indexOf(c) == -1) 
+        for(char ch: str.toCharArray())
+            if(isConsonant(ch)) 
                 count++;
         return count;
     } 
