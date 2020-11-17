@@ -9,7 +9,7 @@ public class StringOps {
      */
     public static int countVowels(String str) {
         int count = 0;
-        for(char c: str)
+        for(char c: str.toCharArray())
             if("aeiouAEIOU".indexOf(c) != -1) 
                 count++;
         return count;
@@ -20,8 +20,8 @@ public class StringOps {
      */
     public static int countConsonants(String str) {
         int count = 0;
-        for(char c: str)
-            if(c.isLetter() && "aeiouAEIOU".indexOf(c) == -1) 
+        for(char c: str.toCharArray())
+            if(Character.isLetter(c) && "aeiouAEIOU".indexOf(c) == -1) 
                 count++;
         return count;
     } 
