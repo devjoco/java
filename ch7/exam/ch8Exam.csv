@@ -1,0 +1,25 @@
+The isDigit; isLetter; and isLetterOrDigit methods are members of this class., String, Char, *Character, StringBuilder
+This method converts a character to uppercase., makeUpperCase, *toUpperCase, isUpperCase, upperCase
+The startsWith; endsWith; and regionMatches methods are members of this class., *String, Char, Character, StringTokenizer
+The indexOf and lastIndexOf methods are members of this class., *String, Integer, Character, StringTokenizer
+The substring; getChars; and toCharArray methods are members of this class., *String, Float, Character, StringTokenizer
+This String class method performs the same operation as the + operator when used on strings., add, join, *concat, plus
+The String class has several overlaoded versions of a method that accepts a value of any primitive data type as its argument and returns a string representation of the value. The name of the method is, stringValue, *valueOf, getString, valToString
+If you do not pass an argument to the StringBuilder constructor; the object will have enough memory to store this many characters., *16, 1, 256, Unlimited
+This is one of the methods that are common to both the String and StringBuilder classes., append, insert, delete, *length
+To change the value of a specific character in a StringBuilder object; use this method., changeCharAt, *setCharAt, setChar, change
+To delte a specific character in a StringBuilder object; use this method., *deleteCharAt, removeCharAt, removeChar, expunge
+The character that separates tokens in a string is known as a, separator, tokenizer, *delimiter, terminator
+This StringTokenizer method returns true if there are more tokens to be extracted from a string., moreTokens, tokensLeft, getToken, *hasMoreTokens
+Each of the numeric wrapper classes has a static method that converts a string to a number. All of these methods begin with this word., convert, toString, *parse, toNumber
+These static final variables are members of the numeric wrapper classes and hold the minimum and maximum values for a particular data type., *MIN_VALUE and MAX_VALUE, MIN and MAX, MINIMUM and MAXIMUM, LOWEST and HIGHEST
+True or False: Character testing methods; such as isLetter; accept strings as arguments and test each character in the string., True, *False
+True or False: If the toUpperCase method's argument is already uppercase; it is returned as is; with no changes., *True, False
+True or False: If the toLowerCase method's argument is already lowercase; it will be inadvertently converted to uppercase., True, *False
+True or False: The startsWith and endsWith methods are case sensitive., *True, False
+True or False: There are two versions of the regionMatches method: one that is case sensistive and one that can be case insensitive., *True, False
+True or False: The indexOf and lastIndexOf methods find characters; but cannot find substrings., True, *False
+True or False: The String class's replace method can replace individual characters; but not substrings., *True, False
+True or False: The StringBuilder class's replace method can replace individual characters; but not substrings, True, *False
+True or False: You can use the = operator to assign a string to a StringBuilder object., True, *False
+True or False: To get the value of a wrapper class object; you must call a method., True, *False

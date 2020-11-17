@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class DemoExam {
     public static void main(String[] args) throws IOException {
-        String[] tests = {"ch6Exam.csv", "ch7Exam.csv"};
+        String[] tests = {"ch6Exam.csv", "ch7Exam.csv", "ch8Exam.csv"};
         Scanner scan = new Scanner(System.in);
         enumerateChoices(tests);
         char choice = scan.nextLine().toUpperCase().charAt(0);
