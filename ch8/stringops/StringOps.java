@@ -5,6 +5,28 @@ import java.util.StringTokenizer;
  */
 public class StringOps {
     /**
+     * Return the number of vowels in the given String
+     */
+    public static int countVowels(String str) {
+        int count = 0;
+        for(char c: str)
+            if("aeiouAEIOU".indexOf(c) != -1) 
+                count++;
+        return count;
+    } 
+
+    /**
+     * Return the number of consonants in the given String
+     */
+    public static int countConsonants(String str) {
+        int count = 0;
+        for(char c: str)
+            if(c.isLetter() && "aeiouAEIOU".indexOf(c) == -1) 
+                count++;
+        return count;
+    } 
+
+    /**
      * Display the given String in reverse.
      * e.g. printReverse("gravity") → "ytivarg"
      */
@@ -17,9 +39,9 @@ public class StringOps {
 
     /**
      * Return the number of words in the given String.
-     * e.g. getWordCount("Four score and seven years ago") → 6
+     * e.g. countWords("Four score and seven years ago") → 6
      */
-    public static int getWordCount(String str) {
+    public static int countWords(String str) {
         StringTokenizer st = new StringTokenizer(str);
         return st.countTokens();
     }

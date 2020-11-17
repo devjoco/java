@@ -15,7 +15,7 @@ public class DemoStringOps {
         System.out.print("Str: ");
         str = scan.nextLine();
         System.out.print("Word count: ");
-        System.out.println(StringOps.getWordCount(str));
+        System.out.println(StringOps.countWords(str));
         
         System.out.println("\nEnter a string to be capitalized.");
         System.out.print("Str: ");
