@@ -5,22 +5,22 @@ public class DemoStringOps {
         Scanner scan = new Scanner(System.in);
         String  str;
 
-        System.out.println("Enter a string to be reversed.");
-        System.out.print("Str: ");
+        System.out.println("Type something!");
+        System.out.print("Your string: ");
         str = scan.nextLine();
-        System.out.print("Rvs: ");
-        StringOps.printReverse(str);
 
-        System.out.println("\nEnter a string to be counted.");
-        System.out.print("Str: ");
-        str = scan.nextLine();
-        System.out.print("Word count: ");
-        System.out.println(StringOps.countWords(str));
-        
-        System.out.println("\nEnter a string to be capitalized.");
-        System.out.print("Str: ");
-        str = scan.nextLine();
-        System.out.print("Cap: ");
+        // Print the word, vowel, consonant counts
+        System.out.printf("\nThat has %d words, %d vowels, & %d consonants\n",
+                StringOps.countWords(str),
+                StringOps.countVowels(str),
+                StringOps.countConsonants(str));
+
+        // Print the string with capitalized sentences
+        System.out.println("\nYour string with capitalized sentences:");
         System.out.println(StringOps.toCapitalized(str));
+
+        // Print the reverse of the string
+        System.out.println("\nYour string reversed:");
+        StringOps.printReverse(str);
     }
 }
