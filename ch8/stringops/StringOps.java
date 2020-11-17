@@ -19,8 +19,9 @@ public class StringOps {
      */
     public static String toOp(String str) {
         StringBuilder sb = new StringBuilder(str.length() * 3);
-        for(int i=0; i<str.length(); i++) {
-            sb.append(str.charAt(i));
+        char[] chars = str.toCharArray();
+        for(int i=0; i<chars.length; i++) {
+            sb.append(chars[i]);
         }
         return sb.toString();
     }
