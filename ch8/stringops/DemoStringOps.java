@@ -30,5 +30,10 @@ public class DemoStringOps {
         // Print user's string as a telephone number
         System.out.println("\nYour string if used as a telephone number:");
         System.out.println(StringOps.toPhoneNumber(str));
+
+        // Print user's string in Op
+        System.out.println("\nYour string in Op language:");
+        System.out.println(StringOps.toOp(str));
+
     }
 }

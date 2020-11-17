@@ -6,6 +6,26 @@ import java.util.StringTokenizer;
 public class StringOps {
 
     /**
+     * Convert a string to Op language.
+     * Rules for op:
+     *   - Each vowel remains the same
+     *   - Each consonant gets "op" appended to it
+     *   - Grouped letters get one "op" after both:
+     *     - "Qu", "Ch", "Sh", "Th", "Ps"
+     *     - Any double consonant e.g. "tt" in "letters"
+     *   - Special consonants:
+     *     - K gets "ap" to distinguish from C
+     *     - Lone "Q" gets "ap" to distinguish from "Qu"
+     */
+    public static String toOp(String str) {
+        StringBuilder sb = new StringBuilder(str.length() * 3);
+        for(int i=0; i<str.length(); i++) {
+            sb.append(str.charAt(i));
+        }
+        return sb.toString();
+    }
+
+    /**
      * Convert alphanumeric telephone to numeric telephone number.
      * e.g. 1-800-GET-FOOD →  1-800-438-3663
      */
