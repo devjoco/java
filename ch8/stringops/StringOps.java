@@ -1,3 +1,5 @@
+import java.util.StringTokenizer;
+
 /**
  * Programming Challenges 1,2,3 Page 563.
  */
@@ -18,8 +20,8 @@ public class StringOps {
      * e.g. getWordCount("Four score and seven years ago") → 6
      */
     public static int getWordCount(String str) {
-        int ans = 0;
-        return ans;
+        StringTokenizer st = new StringTokenizer(str);
+        return st.countTokens();
     }
 
     /**
@@ -29,7 +31,27 @@ public class StringOps {
      *        → "Hello. My name is Joe. What is your name?"
      */
     public static String toCapitalized(String str) {
+        String token, DELIMS = ".!?";
         StringBuilder strb = new StringBuilder(str.length());
+        StringTokenizer st = new StringTokenizer(str, DELIMS, true);
+        int pos;
+
+        while(st.hasMoreTokens()) {
+            token = st.nextToken();
+            if(DELIMS.indexOf(token) != -1) {
+                strb.append(token);
+            } else {
+                pos = 0;
+                while(Character.isWhitespace(token.charAt(pos))) {
+                    strb.append(token.charAt(pos));
+                    pos++;
+                }
+                strb.append(Character.toUpperCase(token.charAt(pos)));
+                pos++;
+                strb.append(token.substring(pos));
+            }
+        }
+
         return strb.toString();
     }
 }
