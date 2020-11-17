@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
  */
 public class StringOps {
 
+    public static char NULL_CHAR = '\0';
+
     /**
      * Convert a string to Op language.
      * Rules for op:
@@ -12,17 +14,55 @@ public class StringOps {
      *   - Each consonant gets "op" appended to it
      *   - Grouped letters get one "op" after both:
      *     - "Qu", "Ch", "Sh", "Th", "Ps"
-     *     - Any double consonant e.g. "tt" in "letters"
+     *     - Any double consonant 
+     *       - First char gets an 'a' 
+     *       - e.g. "tt" in "letters" → "tatop"
      *   - Special consonants:
      *     - K gets "ap" to distinguish from C
      *     - Lone "Q" gets "ap" to distinguish from "Qu"
      */
-    public static String toOp(String str) {
-        StringBuilder sb = new StringBuilder(str.length() * 3);
-        char[] chars = str.toCharArray();
-        for(int i=0; i<chars.length; i++) {
-            sb.append(chars[i]);
+    public static String toOp(String str, boolean verbose) {
+        StringBuilder   sb = new StringBuilder(str.length() * 3);
+        StringTokenizer st = new StringTokenizer(str, " ");
+        char thisChar, nextChar, chars[] = str.toCharArray();
+        boolean firstLetter, firstWord = true;
+
+        /* Loop through each word */
+        while(st.hasMoreTokens()) {
+            chars = st.nextToken().toCharArray();
+            firstLetter = true;
+
+            /* Add space if not first word */
+            if(!firstWord) 
+                sb.append(" ");
+
+            /* Add each character according to rules of Op */
+            for(int i=0; i<chars.length; i++) {
+                thisChar = chars[i];
+                nextChar = (i != chars.length - 1)? chars[i+1] : NULL_CHAR;
+
+                /* Separate characters by hyphen to aid reading */
+                if(verbose && !firstLetter) 
+                    sb.append('-');
+
+                /* Char is a consonant, will be changed by rules */
+                if(isConsonant(thisChar)) {
+                    /* Add the op to the consonant */
+                    sb.append(thisChar + "op");
+                } 
+                /* Char is a vowel, will not change */
+                else if(isVowel(thisChar)) {
+                    sb.append(thisChar);
+                } 
+                /* Char is not a letter, consider it as a word break */
+                else {
+                    firstLetter = true;
+                }
+                firstLetter = false;
+            }
+            firstWord = false;
         }
+
         return sb.toString();
     }
 

@@ -33,7 +33,7 @@ public class DemoStringOps {
 
         // Print user's string in Op
         System.out.println("\nYour string in Op language:");
-        System.out.println(StringOps.toOp(str));
+        System.out.println(StringOps.toOp(str, true));
 
     }
 }
