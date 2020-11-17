@@ -4,6 +4,50 @@ import java.util.StringTokenizer;
  * Programming Challenges 1,2,3 Page 563.
  */
 public class StringOps {
+
+    /**
+     * Determine whether the given string meets the password reqs.
+     *  - Should be at least 6 charaters long
+     *  - Should contain at least one upper, lower, digit
+     *  - Verbose option for req. hints or confirmation msg
+     */
+    public static boolean validatePassword(String str, boolean verbose) { 
+        final int CHAR_NEEDED = 6;
+
+        boolean reqsMet    = false;
+        boolean upperFound = false;
+        boolean lowerFound = false;
+        boolean digitFound = false;
+        boolean charsFound = false;
+        int     charCount  = 0;
+        
+        for(char c: str.toCharArray()) {
+            charCount++;
+            if(Character.isUpperCase(c)) upperFound = true;
+            if(Character.isLowerCase(c)) lowerFound = true;
+            if(Character.isDigit(c))     digitFound = true;
+            if(charCount >= CHAR_NEEDED) charsFound = true;
+        } 
+
+        if(upperFound && lowerFound && digitFound && charsFound) { 
+            reqsMet = true;
+            if(verbose)
+                System.out.println("That password meets all requirements!");
+        } else {
+            System.out.println("Your password is missing some requirments!");
+            if(!charsFound)
+                System.out.println(" - Needs at least six characters");
+            if(!upperFound)
+                System.out.println(" - Needs at least one uppercase letter");
+            if(!lowerFound)
+                System.out.println(" - Needs at least one lowercase letter");
+            if(!digitFound)
+                System.out.println(" - Needs at least one digit");
+        }
+
+        return reqsMet;
+    }
+
     /**
      * Return the number of vowels in the given String
      */

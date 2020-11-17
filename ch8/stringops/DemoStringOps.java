@@ -22,5 +22,9 @@ public class DemoStringOps {
         // Print the reverse of the string
         System.out.println("\nYour string reversed:");
         StringOps.printReverse(str);
+
+        // Print whether the user's input would be a good password
+        System.out.println("\nYour string if used as a password:");
+        StringOps.validatePassword(str, true);
     }
 }
