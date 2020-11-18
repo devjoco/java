@@ -47,8 +47,28 @@ public class StringOps {
 
                 /* Char is a consonant, will be changed by rules */
                 if(isConsonant(thisChar)) {
-                    /* Add the op to the consonant */
-                    sb.append(thisChar + "op");
+                    /* Handle special pairs: Qu, Ch, Sh, Th, Ps */
+                    if(isSpecialGroup(thisChar, nextChar)) {
+                        sb.append(thisChar);
+                        sb.append(nextChar);
+                        sb.append("op");
+                        i++; // Skip over nextChar
+                    }
+                    /* Handle double consonants */
+                    else if(thisChar == nextChar) {
+                        sb.append(thisChar + "a");
+                        sb.append(thisChar + "op");
+                        i++; // Skip over nextChar
+                    }
+                    /* Handle special consonants: K, Q */
+                    else if(isSpecialConsonant(thisChar)) {
+                        sb.append(thisChar);
+                        sb.append("ap");
+                    }
+                    /* Handle regular consonats */
+                    else {
+                        sb.append(thisChar + "op");
+                    }
                 } 
                 /* Char is a vowel, will not change */
                 else if(isVowel(thisChar)) {
@@ -64,6 +84,23 @@ public class StringOps {
         }
 
         return sb.toString();
+    }
+
+    /**
+     * Return whether the given character is a special consonant.
+     */
+    private static boolean isSpecialConsonant(char ch) {
+        final String SPECIAL = "KQ";
+        return SPECIAL.indexOf(Character.toUpperCase(ch)) != -1;
+    }
+
+    /**
+     * Return whether the given two characters constitute a special group.
+     */
+    private static boolean isSpecialGroup(char ch1, char ch2) {
+        final String SPECIAL = "QU CH SH TH PS";
+        String candidate = (String.valueOf(ch1) + ch2).toUpperCase();
+        return SPECIAL.indexOf(candidate) != -1;
     }
 
     /**
