@@ -1,8 +1,14 @@
 import java.io.*;
+import java.nio.file.*;
+import java.nio.file.attribute.*;
+import static java.nio.file.FileVisitResult.*;
+import static java.nio.file.FileVisitOption.*;
 import java.util.Scanner;
 
 public class DemoExam {
     public static void main(String[] args) throws IOException {
+        PathMatcher matcher = 
+            FileSystems.getDefault().getPathMatcher("glob:ch[0-9]*Exam.csv");
         String[] tests = {"ch6Exam.csv", "ch7Exam.csv", "ch8Exam.csv"};
         Scanner scan = new Scanner(System.in);
         enumerateChoices(tests);
