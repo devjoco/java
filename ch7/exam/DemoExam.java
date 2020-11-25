@@ -10,7 +10,7 @@ public class DemoExam {
 
     public static class ExamFinder extends SimpleFileVisitor<Path> {
         private final PathMatcher matcher = 
-            FileSystems.getDefault().getPathMatcher("glob:ch[0-9]Exam.csv");
+            FileSystems.getDefault().getPathMatcher("regex:ch[0-9]+Exam.csv");
         private ArrayList<String> exams = new ArrayList<String>();
 
         @Override
