@@ -4,12 +4,35 @@ import java.nio.file.attribute.*;
 import static java.nio.file.FileVisitResult.*;
 import static java.nio.file.FileVisitOption.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class DemoExam {
+
+    public static class ExamFinder extends SimpleFileVisitor<Path> {
+        private final PathMatcher matcher = 
+            FileSystems.getDefault().getPathMatcher("glob:ch[0-9]Exam.csv");
+        private ArrayList<String> exams = new ArrayList<String>();
+
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes atrs) {
+            Path name = file.getFileName();
+            if (name != null && matcher.matches(name))
+                exams.add(file.toString());
+            return CONTINUE;
+        } 
+
+        public String[] getExams() {
+            return exams.toArray(new String[exams.size()]);
+        }
+    }
+
     public static void main(String[] args) throws IOException {
-        PathMatcher matcher = 
-            FileSystems.getDefault().getPathMatcher("glob:ch[0-9]*Exam.csv");
-        String[] tests = {"ch6Exam.csv", "ch7Exam.csv", "ch8Exam.csv"};
+        Path startingDir = Paths.get("../../");
+
+        ExamFinder eFinder = new ExamFinder();
+        Files.walkFileTree(startingDir, eFinder);
+        String[] tests = eFinder.getExams();
+
         Scanner scan = new Scanner(System.in);
         enumerateChoices(tests);
         char choice = scan.nextLine().toUpperCase().charAt(0);
@@ -22,12 +45,15 @@ public class DemoExam {
     }
 
     public static void enumerateChoices(String[] choices) {
-        String displayName;
+        String displayName, name;
         char label;
+        int nameElems;
         System.out.println("  Which test do you want to take:");
         for(int i=0; i<choices.length; i++) { 
             label = (char)(i + (int)'A');
-            displayName = choices[i].split("\\.")[0]; 
+            nameElems = Paths.get(choices[i]).getNameCount();
+            name = Paths.get(choices[i]).getName(nameElems-1).toString();
+            displayName = name.split("\\.")[0]; 
             System.out.printf("\t%c.) %s\n", label, displayName);
         }
         System.out.print("\t0.) Exit\n");
