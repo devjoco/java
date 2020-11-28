@@ -14,3 +14,15 @@ When a class implements an interface it must, overload all of the methods listed
 Fields in an interface are, final, static, *both final and static, not allowed
 Abstract methdos must be, *overridden, overloaded, deleted and replaced with real methods, declared as private
 Abstract classes cannot, be used as superclasses, have abstract methods, *be instantiated, have fields
+True or False: Constructors are not inherited., *True, False
+True or False: In a subclass a call to the superclass constructor can be written only in the subclass constructor., *True, False
+True or False: If a subclass constructor does not explicitly call a superclass constructor Java will not call any of the superclass's constructors., True, *False
+True or False: An object of a superclass can access members declared in a subclass., True, *False
+True or False: The superclass constructor always executes before the subclass constructor., *True, False
+True or False: When a method is declared with the final modifier it must be overridden in a subclass., True, *False
+True or False: A superclass has a member with package access. A class that is outside the superclass's package but inherits from the superclass can access this member., True, *False
+True or False: A superclass reference variable can reference an object of a class that inherits from the superclass., *True, False
+True or False: A subclass reference variable can reference an object of the superclass., True, *False
+True or False: When a class contains an abstract method the class cannot be instantiated., *True, False
+True or False: A class can implement only one interface., True, *False
+True or False: By default all members of an interface are public., *True, False
