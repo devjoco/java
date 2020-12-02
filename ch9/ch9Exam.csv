@@ -1,5 +1,5 @@
 In an inheritance relationship this is the general class., subclass, *superclass, derived class, child class
-In an inheritance relationship this i sthe specialized class., superclass, base class, *subclass, parent class
+In an inheritance relationship this is the specialized class., superclass, base class, *subclass, parent class
 This key word indicates that a class inherits from another class., derived, specialized, based, *extends
 A subclass does not have access to these superclass members., public, *private, protected, all of these
 This key word refers to an object's superclass., *super, base, this, parent
@@ -9,10 +9,10 @@ A method in a subclass having the same signature as a method in the superclass i
 A method in a subclass having the same name as a method in the superclass but a different signature is an example of, *overloading, overriding, composition, an error
 These superclass members are accessible to subclasses and classes in the same package., private, public, *protected, all of these
 All classes directly or indirectly inherit from this class., *Object, Super, Root, Java
-With this type of binding the JVM determines at runtime which method to call depending on the type of the object that a variabl ereferences., static, early, flexible, *dynamic
-When a class implements an interface it must, overload all of the methods listed in the interface, *provide all of the methods that are listed in the interface with the exact signatures specified, not have a constructor, be an abstract class,
+With this type of binding the JVM determines at runtime which method to call depending on the type of the object that a variable references., static, early, flexible, *dynamic
+When a class implements an interface it must, overload all of the methods listed in the interface, *provide all of the methods that are listed in the interface with the exact signatures specified, not have a constructor, be an abstract class
 Fields in an interface are, final, static, *both final and static, not allowed
-Abstract methdos must be, *overridden, overloaded, deleted and replaced with real methods, declared as private
+Abstract methods must be, *overridden, overloaded, deleted and replaced with real methods, declared as private
 Abstract classes cannot, be used as superclasses, have abstract methods, *be instantiated, have fields
 True or False: Constructors are not inherited., *True, False
 True or False: In a subclass a call to the superclass constructor can be written only in the subclass constructor., *True, False
