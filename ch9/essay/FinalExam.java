@@ -8,6 +8,7 @@ public class FinalExam extends GradedActivity {
         numQuestions = questions;
         numMissed    = missed;
         pointsEach   = 100.0 / numQuestions;
+        setScore(100.0 - pointsEach * numMissed);
     }
 
     /** Getters */
@@ -20,7 +21,7 @@ public class FinalExam extends GradedActivity {
             + "\nFinalExam Details:"
             + "\n\tQuestions:   "    + numQuestions
             + "\n\tPoints Each: "    + pointsEach
-            + "\n\tMisses:      "    + numMissed
+            + "\n\tMisses:      "    + numMissed;
     }
 
 }
