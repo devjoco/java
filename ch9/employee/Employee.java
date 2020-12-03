@@ -2,6 +2,7 @@ import java.util.Date;
 import java.text.DecimalFormat;
 
 public class Employee {
+    public static final String DEFAULT_NAME = "John Doe";
     private static int employeeCount = 0;
     private String name;
     private String number;   // Format: ###-<alpha>
@@ -17,8 +18,8 @@ public class Employee {
     }
 
     /** Overloaded constructors */
-    public Employee(String name) { this(name       , new Date()); }
-    public Employee()            { this("John Doe" , new Date()); }
+    public Employee(String name) { this(name         , new Date()); }
+    public Employee()            { this(DEFAULT_NAME , new Date()); }
 
     /** Provides a unique employee number in form ###-<alpha>.
      * Constructed using:
