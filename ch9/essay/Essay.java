@@ -30,9 +30,11 @@ public class Essay extends GradedActivity {
 
     @Override
     public String toString() {
-        return super.toString() +" Content: "+ contentPts
-            + " Grammar: " + grammarPts
-            + " Length: " + lengthPts
-            + " Spelling: " + spellingPts;
+        return super.toString() 
+            + "\nEssay Details:"
+            + "\n\tContent:  "   + contentPts
+            + "\n\tGrammar:  "   + grammarPts
+            + "\n\tLength:   "   + lengthPts
+            + "\n\tSpelling: "   + spellingPts;
     }
 }

@@ -21,6 +21,9 @@ public class GradedActivity {
 
     @Override
     public String toString() {
-        return "Score: "+score+" Grade: "+getGrade();
+        return super.toString()
+            + "\nGradedActivity Details:"
+            + "\n\tScore: "               + score
+            + "\n\tGrade: "               + getGrade();
     }
 }

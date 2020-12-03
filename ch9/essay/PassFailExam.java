@@ -14,4 +14,13 @@ public class PassFailExam extends PassFailActivity {
     /** Getters */
     public double getPointsEach() { return pointsEach; }
     public int    getNumMissed()  { return numMissed;  }
+
+    @Override
+    public String toString() {
+        return super.toString()
+            + "\nPassFailExam Details: "
+            + "\n\tQuestions:   "        + numQuestions
+            + "\n\tPoints Each: "        + pointsEach
+            + "\n\tMisses:      "        + numMisses
+    }
 }
