@@ -9,6 +9,7 @@ public class PassFailExam extends PassFailActivity {
         numQuestions = questions;
         numMissed    = missed;
         pointsEach   = 100.0 / numQuestions;
+        setScore(100.0 - numMissed * pointsEach);
     }
 
     /** Getters */
@@ -21,6 +22,6 @@ public class PassFailExam extends PassFailActivity {
             + "\nPassFailExam Details: "
             + "\n\tQuestions:   "        + numQuestions
             + "\n\tPoints Each: "        + pointsEach
-            + "\n\tMisses:      "        + numMisses
+            + "\n\tMisses:      "        + numMissed;
     }
 }
