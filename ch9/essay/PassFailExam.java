@@ -1,4 +1,4 @@
-public class PassFailExam {
+public class PassFailExam extends PassFailActivity {
     private int    numQuestions;
     private int    numMissed;
     private double pointsEach;
