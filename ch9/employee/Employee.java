@@ -42,4 +42,9 @@ public class Employee {
     /** Setters */
     public void setName(String name)   { this.name = name;     }
     public void setHireDate(Date date) { this.hireDate = date; }
+
+    @Override
+    public String toString() {
+        return name+" "+number+" "+hireDate;
+    }
 }
