@@ -1,6 +1,16 @@
 public class GradedActivity {
     private double score;
 
+    /** Default Constructor */
+    public GradedActivity() {
+        this.score = 0;
+    }
+
+    /** Copy Constructor */
+    public GradedActivity(GradedActivity ga) {
+        this.score = ga.getScore();
+    }
+
     /** Set the GA's score to the given grade.  */
     public void setScore(double s) {
         score = s;
