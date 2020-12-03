@@ -27,4 +27,12 @@ public class Essay extends GradedActivity {
     public void setGrammarPts(double pts)  { grammarPts  = pts; }
     public void setLengthPts(double pts)   { lengthPts   = pts; }
     public void setSpellingPts(double pts) { spellingPts = pts; }
+
+    @Override
+    public String toString() {
+        return super.toString() +" Content: "+ contentPts
+            + " Grammar: " + grammarPts
+            + " Length: " + lengthPts
+            + " Spelling: " + spellingPts;
+    }
 }

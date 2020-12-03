@@ -18,4 +18,9 @@ public class GradedActivity {
                score >= 70? 'C':
                score >= 60? 'D': 'F';
     }
+
+    @Override
+    public String toString() {
+        return "Score: "+score+" Grade: "+getGrade();
+    }
 }
