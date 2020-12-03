@@ -16,6 +16,12 @@ public class Essay extends GradedActivity {
         setScore(c + g + l + s);
     } 
 
+    /** Copy Constructor */
+    public Essay(Essay e) {
+        this(e.getContentPts(), e.getGrammarPts(), 
+                e.getLengthPts(), e.getSpellingPts());
+    }
+
     /** Getters */
     public double getContentPts()  { return contentPts;  }
     public double getGrammarPts()  { return grammarPts;  }

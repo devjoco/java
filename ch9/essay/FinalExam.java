@@ -11,9 +11,15 @@ public class FinalExam extends GradedActivity {
         setScore(100.0 - pointsEach * numMissed);
     }
 
+    /** Copy Constructor */
+    public FinalExam(FinalExam fe) {
+        this(fe.getNumQuestions(), fe.getNumMissed());
+    }
+
     /** Getters */
-    public double getPointsEach() { return pointsEach; }
-    public int    getNumMissed()  { return numMissed;  }
+    public double getPointsEach()   { return pointsEach;   }
+    public int    getNumQuestions() { return numQuestions; }
+    public int    getNumMissed()    { return numMissed;    }
 
     @Override
     public String toString() {

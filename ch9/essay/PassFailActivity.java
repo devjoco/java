@@ -6,6 +6,16 @@ public class PassFailActivity extends GradedActivity {
         minPassingScore = mps;
     }
 
+    /** Copy Constructor */
+    public PassFailActivity(PassFailActivity pfa) {
+        this(pfa.getMinPassingScore());
+    }
+
+    /** Getters */
+    public double getMinPassingScore() {
+        return minPassingScore;
+    }
+
     /** Return P if passing score, F otherwise */
     @Override
     public char getGrade() {

@@ -12,9 +12,16 @@ public class PassFailExam extends PassFailActivity {
         setScore(100.0 - numMissed * pointsEach);
     }
 
+    /** Copy Constructor */
+    public PassFailExam(PassFailExam pfe) {
+        this(pfe.getNumQuestions(), pfe.getNumMissed(), 
+                pfe.getMinPassingScore());
+    }
+
     /** Getters */
-    public double getPointsEach() { return pointsEach; }
-    public int    getNumMissed()  { return numMissed;  }
+    public double getPointsEach()   { return pointsEach;   }
+    public int    getNumQuestions() { return numQuestions; }
+    public int    getNumMissed()    { return numMissed;    }
 
     @Override
     public String toString() {
