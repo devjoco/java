@@ -26,5 +26,13 @@ public class Demo {
         System.out.println();
         PassFailExam myPFE = new PassFailExam(50, 7, 70);
         System.out.println(myPFE);
+
+        /** Test CourseGrades */
+        System.out.println();
+        CourseGrades myCG = new CourseGrades(myGA, myPFE, myE, myFE);
+        System.out.println(myCG);
+        System.out.println(myCG.getAverage());
+        System.out.println(myCG.getHighest());
+        System.out.println(myCG.getLowest());
     }
 }
