@@ -1,0 +1,20 @@
+The if statement is an example of a, sequence structure., *decision structure., pathway structure., class structure.
+The type of expression has a value of either true or false., binary expression, decision expression, unconditinoal expression, *boolean expression
+> < and == are, *relational operators., logical operators, conditional operators, ternary operators
+&& || and ! are, relational operators., *logical operators, conditional operators, ternary operators
+This is an empty statement that does nothing., missing statement, virtual statement, *null statement, conditional statement
+To create a block of statements you enclose the statements in these., parentheses (), square brackets [], angled brackets <>, *braces {}
+This is a boolean variable that signals when some condition exists in the program., *flag, signal, sentinel, siren
+How does the character 'A' compare to the character 'B'?, 'A' is greater than 'B', *'A' is less than 'B', 'A' is equal to 'B', You cannot compare characters.
+This is an if statement that appears inside another if statement., *nested if statement, tiered if statement, dislodged if statement, structured if statement
+An else clause always goes with, *the closest previous if clause that doesn't already have its own else clause., the closest if clause., the if clause that is randomly selected by the complier., none of these
+When determining whether a number is inside a range it's best to use this operator, *&&, !, ||, ? :
+This determines whether two different String objects contain the same string., the == operator, the = operator, *the equals method, the stringCompare method
+The conditional operator takes this many operands., one, two, *three, four
+This section of a switch statement is branched to if none of the case values match the testExpression., else, *default, case, otherwise
+True or False: The = operator and the == operator perform the same operation., True, *False
+True or False: A conditionally executed statment should be indented one level from the if clause., *True, False
+True or False: All lines in a conditionally executed block should be indented one level., *True, False
+True or False: When an if statement is nested in the if clause of another statement the only time the inner if statement is executed is when the boolean expression of the outer if statement is true., *True, False
+True or False: When an if statement is nested in the else clause of another statement the only time the inner if statment is executed is when the boolean expression of the outer if statement is true., True, *False
+True or False: The scope of a variable is limited to the block in which it is defined., *True, False
