@@ -1,0 +1,19 @@
+This is a collection of programming statements that specify the attributes and methods that a particular type of object can have., *class, method, parameter, instance
+A class is analogous to a, cookie, *cookie cutter, bakery, soft drink
+An object is a(n), blueprint, cookie cutter, variable, *instance
+This is a member of a class that holds data., method, instance, *field, constructor
+This keyword causes an object to be created in membory., create, *new, object, construct
+This keyword causes a value to be sent back from a method to the statement that called it., send, *return, object, construct
+This is a method that gets a value from a class's field but does not change it., *accessor, constructor, void, mutator
+This is a method that stores a value in a field or in some other way changes the value of a field., accessor, constructor, void, *mutator
+When the value of an item is dependent on other data and that item is not updated when the other data is changed what has the value become?, bitter, *stale, asynchronous, moldy
+This is a method that is automatically called when an instance of a class is created., accessor, *constructor, void, mutator
+When a local variable has the same name as a field the local variable's name does this to the field's name, *shadows, complements, deletes, merges with
+If you do not write a constructor for a class this is automatically provided for the class., accessor method, default instance, *default constructor, predefined constructor
+A class's responsibilities are, the objects created from the class, things the class knows, actions the class performs, *Both B and C
+True or False: The occurence of a string literal in a Java program causes a String object to be created in memory initialized with the string literal., *True, False
+True or False: When passing an argument to a method the argument's data type must be compatible with the parameter variable's data type., *True, False
+True or False: When passing multiple arguments to a method the order in which the arguments are passed is not important., True, *False
+True or False: Each instance of a class has its own set of instance fields., *True, False
+True or False: When you write a constructor for a class it still has the default constructor that Java automatically provides., True, *False
+True or False: To find the classes needed for an object-oriented application you identify all of the verbs in a description of a problem domain., True, *False
