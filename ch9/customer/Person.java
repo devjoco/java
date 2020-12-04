@@ -19,4 +19,13 @@ public class Person {
     public void setName(String name)           { this.name      = name;      }
     public void setAddress(String address)     { this.address   = address;   }
     public void setTelephone(String telephone) { this.telephone = telephone; }
+
+    @Override
+    public String toString() {
+        return super.toString()
+            + "\nPerson"
+            + "\n\tName:      " + name
+            + "\n\tAddress:   " + address
+            + "\n\tTelephone: " + telephone;
+    }
 }

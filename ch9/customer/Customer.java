@@ -24,4 +24,12 @@ public class Customer extends Person {
     /** Getters */
     public int     getNumber()       { return number;        }
     public boolean isOnMailingList() { return onMailingList; }
+
+    @Override
+    public String toString() {
+        return super.toString()
+            + "\nCustomer"
+            + "\n\tNumber:       " + number
+            + "\n\tMailing List: " + onMailingList;
+    }
 }

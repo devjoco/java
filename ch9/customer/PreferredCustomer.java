@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class PreferredCustomer extends Customer {
     private double purchases;
     private double discount;
@@ -26,5 +28,14 @@ public class PreferredCustomer extends Customer {
     public void makePurchase(double amt) {
         purchases += amt;
         updateDiscount();
+    }
+
+    @Override
+    public String toString() {
+        DecimalFormat prct = new DecimalFormat("%");
+        return super.toString()
+            + "\nPreferredCustomer"
+            + "\n\tPurchases: " + purchases
+            + "\n\tDiscound:  " + prct.format(discount);
     }
 }
