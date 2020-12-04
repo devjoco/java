@@ -2,7 +2,7 @@ This is a collection of programming statements that specify the attributes and m
 A class is analogous to a, cookie, *cookie cutter, bakery, soft drink
 An object is a(n), blueprint, cookie cutter, variable, *instance
 This is a member of a class that holds data., method, instance, *field, constructor
-This keyword causes an object to be created in membory., create, *new, object, construct
+This keyword causes an object to be created in memory., create, *new, object, construct
 This keyword causes a value to be sent back from a method to the statement that called it., send, *return, object, construct
 This is a method that gets a value from a class's field but does not change it., *accessor, constructor, void, mutator
 This is a method that stores a value in a field or in some other way changes the value of a field., accessor, constructor, void, *mutator

@@ -1,8 +1,8 @@
 Every complete statement ends with a(n), period, parenthesis, *semicolon, ending brace
-The following data are all examples of what?\n72\n'A'\n"Hellow World"\n2.8712, variables, *literals, strings, none of these
+The following data are all examples of what? 72 'A' "Hellow World" 2.8712, variables, *literals, strings, none of these
 A group of statements such as the contents of a class or a method are enclosed in, *braces {}, parentheses (), brackets [], any of these will do
 Which of the following are not valid assignment statements?, total = 9;, 72 = amount;, profit = 129, letter = 'W';, *Both B and C, Both A and D
-Which of the following are not valid println statements?, System.out.println + "Hellow World";, System.out.println("Have a nice day");, out.System.println(value);, println.out(Programming is great fun);, Both A and D, A C and D, Both C and D
+Which of the following are not valid println statements?, System.out.println + "Hellow World";, System.out.println("Have a nice day");, out.System.println(value);, println.out(Programming is great fun);, Both A and D, *A C and D, Both C and D
 The negation operator is, *unary, binary, ternary, none of these
 This keyword is used to declare a named constant., constant, namedConstant, *final, concrete
 These characters mark the beginning of a multiline comment., //, */*, /**, '''

@@ -1,6 +1,6 @@
-What will the println statement in the following program segment display?\nint x = 5;\nSystem.out.println(x++);, *5, 6, 0, None of these
-What will the println statement in the following program segment display?\nint x = 5;\nSysetm.out.println(++x);, 5, *6, 0, None of these
-In the expression number++ the ++ operator is in what mode?, *prefix, pretest, postfix, posttest
+What will the println statement in the following program segment display? int x = 5; System.out.println(x++);, *5, 6, 0, None of these
+What will the println statement in the following program segment display? int x = 5; Sysetm.out.println(++x);, 5, *6, 0, None of these
+In the expression number++ the ++ operator is in what mode?, prefix, pretest, *postfix, posttest
 What is each repetition of a loop known as?, cycle, revolution, oribt, *iteration
 This is a variable that controls the number of iterations performed by a loop., *loop control variable, accumulator, iteration register variable, repetition meter
 The while loop is this type of loop, *pretest, posttest, prefix, postfix
@@ -10,9 +10,9 @@ This type of loop has no way of ending and repeats until the program is interrup
 This type of loop always executes at least one time., while, *do-while, for, Any of these
 This expression is executed by the for loop only once regardless of the number of iterations., *initialization expression, test expression, update expression, preincrement expression
 This is a variable that keeps a running total., sentiel, sum, total, *accumulator
-This is a special value that signals when there are  not more items form a list of items to be processed. This value cannot be mistaken as an item from the list., *sentinel, flag, signal, accumulator
-To open a filef or writing you use the following class., *PrintWriter, FileOpen, OutputFile, FileReader
-To open a file for reading you use the following classes., File and Writer, File and Output, File andInput, *File and Scanner
+This is a special value that signals when there are not more items form a list of items to be processed. This value cannot be mistaken as an item from the list., *sentinel, flag, signal, accumulator
+To open a file for writing you use the following class., *PrintWriter, FileOpen, OutputFile, FileReader
+To open a file for reading you use the following classes., File and Writer, File and Output, File and Input, *File and Scanner
 When a program is finished using a file it should do this., Erase the file, *Close the file, Throw an exception, Reset the read position
 This class allows you to use the print and println methods to write data to a file., File, FileReader, OutputFile, *PrintWriter
 This class allows you to read a line from a file., FileWriter, *Scanner, InputFile, FileReader

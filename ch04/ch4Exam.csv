@@ -1,5 +1,5 @@
 The if statement is an example of a, sequence structure., *decision structure., pathway structure., class structure.
-The type of expression has a value of either true or false., binary expression, decision expression, unconditinoal expression, *boolean expression
+This type of expression has a value of either true or false., binary expression, decision expression, unconditinoal expression, *boolean expression
 > < and == are, *relational operators., logical operators, conditional operators, ternary operators
 && || and ! are, relational operators., *logical operators, conditional operators, ternary operators
 This is an empty statement that does nothing., missing statement, virtual statement, *null statement, conditional statement
