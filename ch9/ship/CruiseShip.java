@@ -2,7 +2,7 @@ public class CruiseShip extends Ship {
     private int maxPassengers;
 
     /* Constructor */
-    public CruiseShip(String name, String year, int maxPassengers) {
+    public CruiseShip(String name, int year, int maxPassengers) {
         super(name, year);
         this.maxPassengers = maxPassengers;
     }
@@ -17,6 +17,6 @@ public class CruiseShip extends Ship {
     public String toString() {
         return super.toString() 
             + "\nCruiseShip" 
-            + "\n\tMax Passengers: " + maxPassengers;
+            + "\n  - Max Passengers: " + maxPassengers;
     }
 }

@@ -2,7 +2,7 @@ public class CargoShip extends Ship {
     private int capacity;
 
     /* Constructor */
-    public CargoShip(String name, String year, int capacity) {
+    public CargoShip(String name, int year, int capacity) {
         super(name, year);
         this.capacity = capacity;
     }
@@ -17,6 +17,6 @@ public class CargoShip extends Ship {
     public String toString() {
         return super.toString()
             + "\nCargoShip"
-            + "\n\tCapacity: " + capacity;
+            + "\n  - Capacity: " + capacity;
     }
 }

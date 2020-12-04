@@ -1,26 +1,25 @@
 public class Ship {
     private String name;
-    private String year;
+    private int    year;
 
     /* Constructor */
-    public Ship(String name, String year) {
+    public Ship(String name, int year) {
         this.name = name;
         this.year = year;
     }
 
     /* Getters */
     public String getName() { return name; } 
-    public String getYear() { return year; }
+    public int    getYear() { return year; }
     
     /* Setters */
     public void setName(String name) { this.name = name; } 
-    public void setYear(String year) { this.year = year; }
+    public void setYear(int year) { this.year = year; }
 
     @Override
     public String toString() {
-        return super.toString()
-            + "\nShip"
-            + "\n\tName: " + name
-            + "\n\tYear: " + year;
+        return "Ship"
+            + "\n  - Name: " + name
+            + "\n  - Year: " + year;
     }
 }
