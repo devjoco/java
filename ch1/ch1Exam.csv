@@ -1,0 +1,14 @@
+This part of the computer feches instructions; it carries out the operations commanded by the instructions; and it produces some outcome or resultant information., memory, *CPU, secondary storage, input device
+A byte is made up of eight, CPUs, addresses, variables, *bits
+Each byte is assigned a unique, *address, CPU, bit, variable
+This type of memory can hold data for long periods of time ─ even when there is no power to the computer., RAM, primary storage, *secondary storage, CPU storage
+If you were to look at a machine language program you would see, Java source code, *a stream of binary numbers, English words, circuits
+This type of program is designed to be transmitted over the Internet and run in a Web browser., application, *applet, machine language, source code
+These are words that have a special meaning in the programming langage., punctuation, programmer-defined names, *keywords, operators
+These are symbols or words that perfom operations on one or more operands., punctuation, programmer-defined names, keywords, *operators
+These characters serve specific purposes such as marking the beginning or ending of a statement or separating items in a list., *punctuation, programmer-defined names, keywords, operators
+These are words or names that are used to identify storage locations in memory and parts of the program that are created by the programmer., punctuation, *programmer-defined words, keywords, operators
+These are the rules that must be followed when writing a program., *syntax, punctuation, keywords, operators
+This is a named storage location in the computer's memory., class, keyword, *variable, operator
+The Java compiler generates, machine code, *byte code, source code, HTML
+JVM stands for, Java Variable Machine, Java Variable Method, Java Virtual Method, *Java Virtual Machine
