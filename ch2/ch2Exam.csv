@@ -1,0 +1,21 @@
+Every complete statement ends with a, period, parenthesis, *semicolon, ending brace
+The following data are all examples of what?\n72\n'A'\n"Hellow World"\n2.8712, variables, *literals, strings, none of these
+A group of statements such as the contents of a class or a method are enclosed in, *braces {}, parentheses (), brackets [], any of these will do
+Which of the following are not valid assignment statements?, total = 9;, 72 = amount;, profit = 129, letter = 'W';, *Both B and C, Both A and D
+Which of the following are not valid println statements?, System.out.println + "Hellow World";, System.out.println("Have a nice day");, out.System.println(value);, println.out(Programming is greate fun);, Both A and D, A C and D, Both C and D
+The negation operator is, *unary, binary, ternary, none of these
+This keyword is used to declare a named constant., constant, namedConstant, *final, concrete
+These characters mark the beginning of a multipline comment., //, */*, /**, '''
+These characters mark the beginning of a signle-line comment., *//, /*, /**, '''
+These characters mark the beginning of a documentation commment., //, /*, */**, '''
+Which Scanner class method would you use to read a string as input?, nextString, *nextLine, readString, getLine
+Which Scanner class method would you use to read a double as input?, *nextDouble, getDouble, readDouble, None of these; you cannot read a double with the Scanner class
+You can use this class to display dialog boxes., *JOptionPane, BufferedReader, InputStreamReader, DialogBox
+When Java converts a lower-ranked value to a higher-ranked type it is called a 4-bit conversion, escalating conversion, *widening conversion, narrowing conversion
+This type of operator lets you manually convert a value even if it means that a narrowing conversion will take place., *cast, binary, uploading, dot
+True or False: A left brace in a Java program is always follwed by a right brace later in the program., *True, False
+True or False: A variable must be declared before it can be used., *True, False
+True or False: Variables names may begin with a number., True, *False
+True or False: You cannot change the value of a variable whose declartion uses the final key word., *True, False
+True or False: Comments taht begin with // can be processed by javadoc., True, *False
+True or False: If one of an operator's operands is a double and the other operand is an int Java will automatically convert the value of the double to an int., True, *False
