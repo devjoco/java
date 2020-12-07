@@ -1,0 +1,24 @@
+When an exception is generated it is said to have been, built, *thrown, caught, killed
+This is a section of code that gracefully responds to exceptions., exception generator, exception manipulator, *exception handler, exception monitor
+If your code does not handle an exception when it is thrown it is dealt with by this., *default exception handler, the operating system, system debugger, defautl exception generator
+All exception classes inherit from this class, Error, RuntimeException, JavaException, *Throwable
+FileNotFoundException inherits from, Error, *IOException, JavaException, FileException
+You can think of this code as being "protected" because the application will not halt if it throws an exception., *try block, catch block, finally block, protected block
+This method can be used to retrieve the error message from an exception object., errorMessage, errorString, getError, *getMessage
+The numeric wrapper classes' "parse" methods all throw an exception of this type., ParseException, *NumberFormatException, IOException, BadNumberException
+This is one or more statements that are always executed after the try block has executed and after any catch blocks have executed if an exception is thrown., try block, catch block, *finally block, protected block
+This is an internal list of all the methods that are currently executing., invocation list, *call stack, call list, list trace
+This method can be called from any exception object and it shows the chain of methods that were called when the exception was thrown., printInvocationList, printCallStack, *printStackTrace, printCallList
+These are exceptions that inherit from the Error class or the RunTimeException class., unrecoverable exceptions, *unchecked exceptions, recoverable exceptions, checked exceptions
+All exceptions that do not inherit from the Error class or the RuntimeException class are, unrecoverable exceptions, unchecked exceptions, recoverable exceptions, *checked exceptions
+This informs the compiler of the exceptions that can get thrown from a method., *throws clause, parameter list, catch clause, method return type
+You use this statement to manually throw an exception., try, generate, *throw, System.exit(0)
+This is the process of converting an object to a series of bytes that represent the object's data., *Serialization, Deserialization, Dynamic conversion, Casting
+True or False: You are not required to catch exceptions that inherit from the RuntimeException class., *True, False
+True or False: When an exception is thrown by code inside a try block all of the statements in the try block are always executed., True, *False
+True or False: IOException serves as a superclass for exceptions that are related to programming errors such as an out-of-bounds array subscript., True, *False
+True or False: You cannot have more than one catch clause per try statement., True, *False
+True or False: When an exception is thrown the JVM searches the try statement's catch clauses from top to bottom and passes control of the program to the first catch clause with a parameter that is compatible with the exception., *True, False
+True or False: Not including polymorphic references a try statement can have only one catch clause for each specific type of exception., *True, False
+True or False: When in the same try statement you are handling multiple exceptions and some of the exceptions are related to each other through inheritance you should handle the more general exception classes before the more specialized exception classes., True, *False
+True or False: The throws clause causes an exception to be thrown., True, *False
