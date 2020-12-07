@@ -37,8 +37,12 @@ public class DemoExam {
         enumerateChoices(tests);
         char choice = scan.nextLine().toUpperCase().charAt(0);
         while( !(choice == '0') ) {
-            Exam exam = new Exam(tests[(int)choice - (int)'A']);
-            displayExamResults(exam);
+            try { 
+                Exam exam = new Exam(tests[(int)choice - (int)'A']); 
+                displayExamResults(exam);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("\n  That is not a good choice, sir!\n");
+            }
             enumerateChoices(tests);
             choice = scan.nextLine().toUpperCase().charAt(0);
         } 
