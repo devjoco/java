@@ -1,6 +1,6 @@
 When an exception is generated it is said to have been, built, *thrown, caught, killed
 This is a section of code that gracefully responds to exceptions., exception generator, exception manipulator, *exception handler, exception monitor
-If your code does not handle an exception when it is thrown it is dealt with by this., *default exception handler, the operating system, system debugger, defautl exception generator
+If your code does not handle an exception when it is thrown it is dealt with by this., *default exception handler, the operating system, system debugger, default exception generator
 All exception classes inherit from this class, Error, RuntimeException, JavaException, *Throwable
 FileNotFoundException inherits from, Error, *IOException, JavaException, FileException
 You can think of this code as being "protected" because the application will not halt if it throws an exception., *try block, catch block, finally block, protected block
