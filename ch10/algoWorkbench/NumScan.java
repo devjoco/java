@@ -18,7 +18,8 @@ public class NumScan {
         System.out.print("Number: ");
         int val   = scan.nextInt();
         if(val < 0) 
-            throw new IllegalArgumentException("Argument cannot be negative");
+            throw new IllegalNegativeArgumentException(
+                    "Argument cannot be negative");
         int index = NumScan.findNumber(val);
         System.out.printf("%d is at index %d\n", val, index);
     }
