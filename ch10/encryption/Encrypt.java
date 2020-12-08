@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Encrypt {
     public static void usage() {
-        System.out.println("Usage: java Encrypt <filename> <password>");
+        System.out.println("Usage: java Encrypt [-d] <filename> <password>");
         System.exit(0);
     }
 
@@ -17,13 +17,16 @@ public class Encrypt {
     public static void main(String[] args) throws IOException {
         /* Make sure a filename is given and a password is given. */
         boolean twoArgs = args.length == 2;
-        if(!twoArgs)
+        boolean threeArgs = args.length == 3;
+        if(!twoArgs 
+                && !threeArgs && !args[0].equals("-d"))
             Encrypt.usage();
 
         Scanner       inFile   = null;
         PrintWriter   outFile  = null;
-        String        filename = args[0];
-        String        password = args[1];
+        String        filename = args[args.length - 2];
+        String        password = args[args.length - 1];
+        boolean       decrypt  = threeArgs? true: false;
         int           offset;
         String        thisLine;
         StringBuilder newLine;
