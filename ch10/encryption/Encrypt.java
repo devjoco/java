@@ -20,10 +20,15 @@ public class Encrypt {
         if(!twoArgs)
             Encrypt.usage();
 
-        Scanner     inFile   = null;
-        PrintWriter outFile  = null;
-        String      filename = args[0];
-        String      password = args[1];
+        Scanner       inFile   = null;
+        PrintWriter   outFile  = null;
+        String        filename = args[0];
+        String        password = args[1];
+        int           offset;
+        String        thisLine;
+        StringBuilder newLine;
+        int           numChars;
+        char          thisChar;
 
 
         /* Open the given file for reading. */
@@ -38,8 +43,21 @@ public class Encrypt {
         outFile = new PrintWriter(new File(filename + ".enc"));
 
         /* Figure out what offset for chars will be based on password. */
+        offset = getOffset(password);
 
         /* Read each character into second file according to offset. */
+        while(inFile.hasNext()) {
+            thisLine = inFile.nextLine();
+            numChars = thisLine.length();
+            newLine  = new StringBuilder(numChars);
+
+            for(int i=0; i<numChars; i++) {
+                thisChar = thisLine.charAt(i);
+                newLine.append((char) (((int)thisChar + offset) % 65536));
+            }
+
+            outFile.println(newLine);
+        }
         
 
         /* Close the files. */
