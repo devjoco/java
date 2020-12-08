@@ -68,7 +68,10 @@ public class Encrypt {
 
             for(int i=0; i<numChars; i++) {
                 thisChar = thisLine.charAt(i);
-                newLine.append((char) (((int)thisChar + offset) % 65536));
+                if(decrypt)
+                    newLine.append((char) (((int)thisChar - offset) % 65536));
+                else
+                    newLine.append((char) (((int)thisChar + offset) % 65536));
             }
 
             outFile.println(newLine);
