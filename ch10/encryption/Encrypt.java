@@ -7,6 +7,13 @@ public class Encrypt {
         System.exit(0);
     }
 
+    public static int getOffset(String password) {
+        int sum = 0;
+        for(int i=0; i<password.length(); i++)
+            sum += (int) password.charAt(i);
+        return sum;
+    }
+
     public static void main(String[] args) throws IOException {
         /* Make sure a filename is given and a password is given. */
         boolean twoArgs = args.length == 2;
@@ -17,6 +24,7 @@ public class Encrypt {
         PrintWriter outFile  = null;
         String      filename = args[0];
         String      password = args[1];
+
 
         /* Open the given file for reading. */
         try {
@@ -29,7 +37,11 @@ public class Encrypt {
         /* Open another file for writing. */
         outFile = new PrintWriter(new File(filename + ".enc"));
 
-        /* Read each character into second file offset according to pw. */
+        /* Figure out what offset for chars will be based on password. */
+
+        /* Read each character into second file according to offset. */
+        
+
         /* Close the files. */
         inFile.close();
         outFile.close();
