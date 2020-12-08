@@ -18,8 +18,9 @@ public class Encrypt {
         /* Make sure a filename is given and a password is given. */
         boolean twoArgs = args.length == 2;
         boolean threeArgs = args.length == 3;
-        if(!twoArgs 
-                && !threeArgs && !args[0].equals("-d"))
+        if(!twoArgs && !threeArgs)
+            Encrypt.usage();
+        if(threeArgs && !args[0].equals("-d"))
             Encrypt.usage();
 
         Scanner       inFile   = null;
@@ -32,12 +33,13 @@ public class Encrypt {
         StringBuilder newLine;
         int           numChars;
         char          thisChar;
+        String        outFilename;
 
         /* If decrypting, make sure file is encrypted */
         if(decrypt) {
             String[] filenameParts = filename.split("\\.");
             String   ext = filenameParts[filenameParts.length - 1];
-            if(!ext.equals(".enc"))
+            if(!ext.equals("enc"))
                 throw new IllegalArgumentException(
                         "Cannot decrypt unencrypted file");
         }
@@ -52,7 +54,8 @@ public class Encrypt {
         }
 
         /* Open another file for writing. */
-        outFile = new PrintWriter(new File(filename + ".enc"));
+        outFilename = filename + ((decrypt)? ".dec": ".enc");
+        outFile = new PrintWriter(new File(outFilename));
 
         /* Figure out what offset for chars will be based on password. */
         offset = getOffset(password);
