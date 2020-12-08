@@ -33,6 +33,15 @@ public class Encrypt {
         int           numChars;
         char          thisChar;
 
+        /* If decrypting, make sure file is encrypted */
+        if(decrypt) {
+            String[] filenameParts = filename.split("\\.");
+            String   ext = filenameParts[filenameParts.length - 1];
+            if(!ext.equals(".enc"))
+                throw new IllegalArgumentException(
+                        "Cannot decrypt unencrypted file");
+        }
+
 
         /* Open the given file for reading. */
         try {
