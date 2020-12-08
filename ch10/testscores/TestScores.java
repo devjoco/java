@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.io.*;
 
@@ -32,6 +33,23 @@ public class TestScores implements Serializable {
                 throw new IllegalArgumentException("Score range: 0-100");
             this.scores[i] = scores[i];
         }
+    }
+
+    /** Prints a one-line repr of the TestScores object.
+     * e.g. TS{35.3, 56.4, 93.9, 87.5, 93.2, 57.0} */
+    @Override
+    public String toString() {
+        DecimalFormat sFmt = new DecimalFormat("0.0");
+        int scoresAdded = 0;
+        String buffer;
+        StringBuilder str = new StringBuilder("TS{");
+        for(double score: scores) {
+            buffer = (scoresAdded == 0)? "": ", ";
+            str.append(buffer + sFmt.format(score));
+            scoresAdded++;
+        }
+        str.append("}");
+        return str.toString();
     }
 
     public static void main(String[] args) {
