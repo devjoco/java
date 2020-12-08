@@ -1,11 +1,12 @@
 import java.util.Scanner;
+import java.io.*;
 
 /** Programming Challenge #1 Chapter 10 Page 697.
  * Write a class named TestScores. The class constructor should accept an array
  * of test scores. If any test score in the array is negative or greater than
  * 100, the class should throw an IllegalArgumentException. Demonstrate the
  * class in a program.  */
-public class TestScores {
+public class TestScores implements Serializable {
     private double[] scores;
     private double average;
     private boolean averageCalculated = false;
@@ -42,13 +43,12 @@ public class TestScores {
 
         double[] scores = new double[numScores];
 
-        System.out.println("Enter the scores.");
         for(int i=0; i<numScores; i++) {
             System.out.printf("Score %d: ", i+1); 
             scores[i] = scan.nextDouble();
         }
 
         TestScores ts = new TestScores(scores);
-        System.out.printf("Average of scores: %.2f", ts.getAverage());
+        System.out.printf("Average of scores: %.2f\n", ts.getAverage());
     }
 }
