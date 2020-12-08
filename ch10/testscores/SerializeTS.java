@@ -1,7 +1,10 @@
 import java.util.Random;
+import java.io.*;
 
 public class SerializeTS {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        final String filename = "tsArrays.bin";
+
         /* Sample data to create TestScores from */
         double[] ts1 = {90};
         double[] ts2 = {89, 90};
@@ -30,11 +33,15 @@ public class SerializeTS {
         printTSArray(TS2);
 
         /* Serialize array of TestScores to a file */
+        DataOutputStream file = new DataOutputStream(
+                new FileOutputStream(filename));
 
         /* Deserialize TestScores from file into empty array */
 
         /* Print out both arrays of TestScores */
 
+        /* Close file */
+        file.close();
     }
 
     public static void printTSArray(TestScores[] ts) {
