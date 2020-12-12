@@ -1,3 +1,5 @@
+package ch09.account;
+
 public abstract class BankAccount {
     private double balance;
     private double interestRate;

@@ -1,3 +1,5 @@
+package ch09.account;
+
 public class SavingsAccount extends BankAccount {
     private final double MIN_BALANCE    = 25.00;
     private final double MAX_WITHDRAWLS = 4;
