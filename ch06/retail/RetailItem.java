@@ -1,3 +1,5 @@
+package ch06.retail;
+
 import java.text.DecimalFormat;
 
 public class RetailItem {
@@ -6,8 +8,11 @@ public class RetailItem {
     private CostData cost;
     private static double WHOLESALE_PERCENTAGE;
 
+    /** Constructors. */
     public RetailItem(String desc, int itemNum, 
             double wholesale, double retail) {
+        if(wholesale < 0 || retail < 0)
+            throw new NegativePriceException();
         description = desc;
         itemNumber = itemNum;
         cost = new CostData(wholesale, retail);

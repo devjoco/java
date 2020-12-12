@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import ch06.retail.*;
 
 public class DemoRetailItem {
     public static void main(String[] args) {
